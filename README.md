@@ -1,1 +1,1 @@
-# tripPalestine--Backend-Alpha
+# TripPalestine - Backend Alpha
