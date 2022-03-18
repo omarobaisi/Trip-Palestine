@@ -1,0 +1,16 @@
+<% layout('/layouts/boilerplate') %> 
+
+<h1>Register</h1>
+
+<form action="/user/register" method="post">
+    <input type="text" placeholder="Name" name="user[name]">
+    <input type="text" placeholder="Email" name="user[email]">
+    <input type="text" placeholder="Phone Number" name="user[phone]">
+    <select name="user[authorization]">
+        <option value="normal">normal</option>
+        <option value="coordinator">coordinator</option>
+        <option value="admin">admin</option>
+    </select>
+    <input type="text" placeholder="Password" name="password">
+    <button>Submit</button>
+</form>

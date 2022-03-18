@@ -1,0 +1,42 @@
+<% layout('/layouts/boilerplate') %> 
+
+<h1>New Journey</h1>
+
+<form action="/journey" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="text" name="journey[name]" placeholder="name">
+    </div>
+    <div>
+        <input type="number" name="journey[price]" placeholder="price">
+    </div>
+    <div class="">
+        <input type="file" name="image" id="" multiple>
+    </div>
+    <div>
+        <input type="text" name="journey[description]" placeholder="description">
+    </div>
+    <div>
+        <input type="text" name="journey[date]" placeholder="date">
+    </div>
+
+    <div class="">
+        number of routes: 
+        <select id="routesNumber">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <% for(var i=0; i<5; i++) { %> 
+        <div class="">
+            <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
+            <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" placeholder="location-<%= i+1 %>">
+        </div>
+    <% } %> 
+
+    <button>Submit</button>
+</form>
+
+<script type="text/javascript" src="/JS/newRoutes.js"></script>

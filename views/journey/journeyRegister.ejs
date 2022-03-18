@@ -1,0 +1,61 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1><%= journey.name %> اتمام عملية التسجيل لرحلة</h1>
+<h1><%= journey.price %> :المجموع</h1>
+
+<% if(currentUser) { %>
+
+    <form action="/journey/<%= journey._id %>" method="post">
+        <div class="">
+            <input type="text" placeholder="المدينة" name="info[city]" required>
+            <input type="hidden" value="<%= currentUser.name %>" name="info[name]">
+            <input type="hidden" value="<%= currentUser.email %>" name="info[email]">
+            <input type="hidden" value="<%= currentUser.phone %>" name="info[phone]">
+            <input type="hidden" value="<%= currentUser._id %>" name="info[user]">
+            <input type="hidden" name="info[price]" value="<%= journey.price %>">
+            <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+            <button type="button">انتقل الى عملية الدفع</button>
+        </div>
+
+        <!--TODO: Use javascript to show this after pressing the below button -->
+        <div class="hiddenPayment">
+            <input type="checkbox" id="noPayment">
+            <label for="noPayment">الدفع المباشر</label>
+            <a href="https://www.paypal.com/">Paypal</a>
+            <button>تسجيل</button>
+        </div>
+
+    </form>
+
+<% } else { %>
+
+    <h1>إتمام التسجيل دون حساب</h1>
+    <form action="/journey/<%= journey._id %>" method="post">
+        <div class="">
+            <input type="text" placeholder="الاسم" name="info[name]" required>
+            <input type="text" placeholder="(اختياري)البريد الاكتروني" name="info[email]">
+            <input type="text" placeholder="رقم الهاتف" name="info[phone]" required>
+            <input type="text" placeholder="المدينة" name="info[city]" required>
+            <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+            <button type="button">انتقل الى عملية الدفع</button>
+        </div>
+
+        <!--TODO: Use javascript to show this after pressing the below button -->
+        <div class="hiddenPayment">
+            <input type="checkbox" id="noPayment">
+            <label for="noPayment">الدفع المباشر</label>
+            <a href="https://www.paypal.com/">Paypal</a>
+            <button>تسجيل</button>
+        </div>
+
+    </form>
+
+    <h1 class="mt-5">لديك حساب بالفعل؟</h1>
+    <a href="/user/register">انشاء حساب</a>
+    <form action="/user/login" method="post">
+        <input type="text" placeholder="البريد الاكتروني" name="email">
+        <input type="text" placeholder="كلمة المرور" name="password">
+        <button>تسجيل الدخول</button>
+    </form>
+
+<% } %>

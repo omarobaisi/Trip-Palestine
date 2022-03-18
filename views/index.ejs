@@ -1,0 +1,22 @@
+<% layout('/layouts/boilerplate') %> 
+
+<div class="my-4" style="font-size: x-large; border-bottom: 1px solid black;">
+    <span>Journeys</span>
+    <a href="/journey" class="badge float-right">Show more</a>
+</div>
+
+<div class="row">
+    <% for(journey of journeys) { %>
+        <div class="col-4">
+            <img src="<%= journey.images[0].url %>" alt="" class="img-fluid">
+            <h5 class="mt-2"><%= journey.name %> </h5>
+            <a class="btn btn-info mt-3" href="/journey/<%= journey._id %>">More</a>
+        </div>
+    <% } %>
+</div>
+
+<div class="mt-5">
+    <% if(currentUser && currentUser.authorization != 'normal') { %> 
+        <a class="btn btn-success" href="/journey/New">New Journey</a>
+    <% } %> 
+</div>

@@ -1,0 +1,17 @@
+<% layout('/layouts/boilerplate') %> 
+
+<% if(results.length > 0) { %>
+    <h1>Search Result</h1>
+
+    <div class="row">
+        <% for(let result of results) { %>
+            <div class="col-4">
+                <img src="<%= result.images[0].url %>" alt="" class="img-fluid">
+                <h5 class="mt-2"><%= result.name %> </h5>
+                <a class="btn btn-info mt-3" href="/journey/<%= result._id %>">More</a>
+            </div>
+        <% } %>
+    </div>
+<% } else { %>
+    <h1>No results</h1>
+<% } %> 

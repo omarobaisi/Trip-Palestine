@@ -1,0 +1,33 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1>approveRegistration</h1>
+
+<table>
+    <caption></caption>
+    <thead>
+        <tr>
+            <th id="">name</th>
+            <th id="">email</th>
+            <th id="">phone</th>
+            <th id="">city</th>
+            <th id="">price</th>
+            <th id="">Approval</th>
+            <th id="">Approve</th>
+        </tr>
+    </thead>
+    <% registration.forEach((reg) => { %>
+        <% if(reg.approved == false) { %> 
+            <tbody>
+                <tr>
+                    <th id=""><a href="/user/<%= reg.user %> "><%= reg.name %></a></th>
+                    <th id=""><%= reg.email %></th>
+                    <th id=""><%= reg.phone %></th>
+                    <th id=""><%= reg.city %></th>
+                    <th id=""><%= reg.price %></th>
+                    <th id=""><%= reg.approved %></th>
+                    <th id=""><a href="/admin/<%= reg._id %>/approveregistration">Approve</a></th>
+                </tr>
+            </tbody>
+        <% } %> 
+    <% }); %> 
+</table>

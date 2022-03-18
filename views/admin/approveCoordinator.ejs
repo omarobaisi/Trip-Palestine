@@ -1,0 +1,29 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1>approve Coordinator</h1>
+
+<table>
+    <caption></caption>
+    <thead>
+        <tr>
+            <th id="">name</th>
+            <th id="">email</th>
+            <th id="">phone</th>
+            <th id="">city</th>
+            <th id="">Approve</th>
+            <th id="">Denie</th>
+        </tr>
+    </thead>
+    <% Request.forEach((req) => { %>
+        <tbody>
+            <tr>
+                <th id=""><a href="/user/<%= req.user %> "><%= req.name %></a></th>
+                <th id=""><%= req.email %></th>
+                <th id=""><%= req.phone %></th>
+                <th id=""><%= req.city %></th>
+                <th id=""><a href="/admin/<%= req._id %>/approvecoordinator">Approve</a></th>
+                <th id=""><a href="/admin/<%= req._id %>/deniecoordinator">Denie</a></th>
+            </tr>
+        </tbody>
+    <% }); %> 
+</table>

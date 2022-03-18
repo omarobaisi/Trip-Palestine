@@ -1,0 +1,29 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1><%= journey.name %></h1>
+<div class="row">
+    <% for(let image of journey.images) { %> 
+    <div class="col-4">
+        <img src="<%= image.url %>" alt="" class="img-fluid mt-4">
+    </div>
+    <% } %>
+</div>
+
+<div class="">
+    <span><%= journey.date %></span>
+</div>
+
+<div class="mt-4">
+    <span><%= journey.description %></span>
+</div>
+
+<div class="my-5">
+    <% if(currentUser && journey.user.equals(currentUser._id)) { %> 
+        <form action="/journey/<%= journey._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+        
+        <a class="btn btn-warning" href="/journey/<%= journey._id %>/edit">Edit</a>
+    <% } %>
+</div>
+<a class="btn btn-success" href="/journey/<%= journey._id %>/register ">Register</a>

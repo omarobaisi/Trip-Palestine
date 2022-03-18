@@ -1,0 +1,9 @@
+<% layout('/layouts/boilerplate') %>
+
+<form action="/admin/becoordinator" method="post">
+    <input type="text" name="info[name]" value="<%= currentUser.name %>" placeholder="الاسم">
+    <input type="text" name="info[email]" value="<%= currentUser.email %>" placeholder="البريد الالكتروني">
+    <input type="text" name="info[phone]" value="<%= currentUser.phone %>" placeholder="رقم الهاتف">
+    <input type="text" name="info[city]" placeholder="المدينة">
+    <button>Sumbit</button>
+</form>

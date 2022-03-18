@@ -1,0 +1,59 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1>Edit <%= journey.name %> Journey</h1>
+
+<form action="/journey/<%= journey._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="text" name="journey[name]" placeholder="name" value="<%= journey.name %>">
+    </div>
+    <div>
+        <input type="number" name="journey[price]" placeholder="price" value="<%= journey.price %>">
+    </div>
+
+    <div>
+        <input type="text" name="journey[description]" placeholder="description" value="<%= journey.description %>">
+    </div>
+    <div>
+        <input type="text" name="journey[date]" placeholder="date" value="<%= journey.date %>">
+    </div>
+    <div>
+        <input type="file" name="image" id="" multiple>
+    </div>
+
+    <span id="routesNum" style="display: none;"><%= journey.routes.length %></span>
+    <div class="">
+        number of routes: 
+        <select id="routesNumber" >
+            <option class="routeNumOption" value="1">1</option>
+            <option class="routeNumOption" value="2">2</option>
+            <option class="routeNumOption" value="3">3</option>
+            <option class="routeNumOption" value="4">4</option>
+            <option class="routeNumOption" value="5">5</option>
+        </select>
+    </div>
+    <% for(var i=0; i<5; i++) { %> 
+        <% if(journey.routes[i]) { %> 
+            <div class="">
+                <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" value="<%= journey.routes[i].city %>">
+                <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" value="<%= journey.routes[i].location %>">
+            </div>
+        <% } else { %>
+            <div class="">
+                <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
+                <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" placeholder="location-<%= i+1 %>">
+            </div>
+        <% } %> 
+    <% } %>
+
+    <div>
+        <% journey.images.forEach(function(img, i) {  %>
+            <img src="<%= img.url %> " alt="" class="img-fluid">
+            <!-- make an array called deleteImages that have the images filename in it -->
+            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%= img.filename %>">
+            <label for="image-<%=i%>">Delete</label>
+        <% }) %> 
+    </div>
+    <button>Submit</button>
+</form>
+
+<script type="text/javascript" src="/JS/editRoutes.js"></script>

@@ -1,0 +1,28 @@
+<% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" href="/stars.css"> 
+
+<h1><%= user.name %> Profile page</h1>
+
+<% if(user.authorization === 'coordinator') { %> 
+    <a class="btn btn-success" href="/user/<%= user._id %>/review/add">Review</a>
+
+    <h3>Reviews</h3>
+    <% user.reviews.forEach((review) => { %>
+        <div class="pt-2 pb-1" style="border-top: 1px solid black;">
+            <h4><%= review.user.name %></h4>
+            <p class="starability-result" data-rating="<%= review.rate %>"></p>
+            <h5 class="my-3"><%= review.body %></h5>
+        </div>
+    <% }); %>
+<% } %>
+
+<% if(user.authorization === 'admin') { %> 
+    <a class="btn btn-success" href="/admin/approveregistration">Approve registration</a>
+<% } %>
+
+<% if(currentUser.authorization === 'admin' && user.authorization === 'coordinator') { %> 
+    <form action="/admin/removecoordinator" method="post">
+        <input type="hidden" name="id" value="<%= user._id %>">
+        <button>تخفيض الرتبة</button>
+    </form>
+<% } %>
