@@ -1,7 +1,23 @@
-<% layout('/layouts/boilerplate') %> 
+<% layout('/layouts/boilerplate') %>
+<!-- Used a star css styling found in public/star.css -->
 <link rel="stylesheet" href="/stars.css">
 
+<!-- User review page -->
+<!-- Recieved the user info -->
+
+
 <h1><%= user.name %> Review</h1>
+
+<!-- Send a post request to "/user/user._id/review" with a body -->
+
+<!-- 
+    json body: {
+        review: {
+            body: input,
+            rate: input     (number from 1 to 5)
+        }
+    }
+ -->
 
 <form action="/user/<%= user._id %>/review" method="post">
     <div class="mt-5">

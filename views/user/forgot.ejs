@@ -1,7 +1,10 @@
 <% layout('/layouts/boilerplate') %> 
 
+<!-- Password reset request page -->
+
 <h1>Reset</h1>
 
+<!-- Send a post request with the name of email to "/user/forgot" -->
 <form action="/user/forgot" method="post">
     <input type="text" placeholder="Email" name="email">
     <button>Submit</button>

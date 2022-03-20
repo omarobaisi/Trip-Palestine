@@ -1,33 +1,78 @@
 <% layout('/layouts/boilerplate') %>
 
+<!-- Journey registration page -->
+<!-- Recieved the journey info -->
+
 <h1><%= journey.name %> اتمام عملية التسجيل لرحلة</h1>
 <h1><%= journey.price %> :المجموع</h1>
 
+<!-- if your logged in -->
 <% if(currentUser) { %>
+
+    <!-- Send a post request with a body to "/journey/journey._id" to register -->
+
+    <!-- 
+        json body: {
+            info: {
+                city: input,
+                name: input,
+                email: input,
+                phone: input,
+                user: input,
+                price: input,
+                journey: input,
+            },
+            image: [inputs],
+            routes: [ 
+                {   
+                    city: input,
+                    location: input,
+                }
+            ]
+        }
+    -->
 
     <form action="/journey/<%= journey._id %>" method="post">
         <div class="">
             <input type="text" placeholder="المدينة" name="info[city]" required>
+            <!-- Hidden inputs that include the user name, email, phone and _id -->
             <input type="hidden" value="<%= currentUser.name %>" name="info[name]">
             <input type="hidden" value="<%= currentUser.email %>" name="info[email]">
             <input type="hidden" value="<%= currentUser.phone %>" name="info[phone]">
             <input type="hidden" value="<%= currentUser._id %>" name="info[user]">
+            <!-- Hidden inputs that include the journey price and _id -->
             <input type="hidden" name="info[price]" value="<%= journey.price %>">
             <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+            <!-- Show payment options (javascript) -->
             <button type="button">انتقل الى عملية الدفع</button>
         </div>
 
         <!--TODO: Use javascript to show this after pressing the below button -->
         <div class="hiddenPayment">
+
+            <!-- Pay to us -->
             <input type="checkbox" id="noPayment">
             <label for="noPayment">الدفع المباشر</label>
+
+            <!-- Paypal (need to work on) -->
             <a href="https://www.paypal.com/">Paypal</a>
+
             <button>تسجيل</button>
         </div>
 
     </form>
 
+<!-- if your not logged in -->
 <% } else { %>
+
+    <!-- Send a post request with a body to "/user/login" to login -->
+
+    <!-- 
+        json body: {
+            email: input,
+            password: input
+        }
+    -->
 
     <h1>إتمام التسجيل دون حساب</h1>
     <form action="/journey/<%= journey._id %>" method="post">
@@ -36,22 +81,39 @@
             <input type="text" placeholder="(اختياري)البريد الاكتروني" name="info[email]">
             <input type="text" placeholder="رقم الهاتف" name="info[phone]" required>
             <input type="text" placeholder="المدينة" name="info[city]" required>
+            <!-- Hidden inputs that include the journey._id -->
             <input type="hidden" name="info[journey]" value="<%= journey._id %>">
             <button type="button">انتقل الى عملية الدفع</button>
         </div>
 
         <!--TODO: Use javascript to show this after pressing the below button -->
         <div class="hiddenPayment">
+
+            <!-- Pay to us -->
             <input type="checkbox" id="noPayment">
             <label for="noPayment">الدفع المباشر</label>
+
+            <!-- Paypal (need to work on) -->
             <a href="https://www.paypal.com/">Paypal</a>
+            
             <button>تسجيل</button>
         </div>
 
     </form>
 
     <h1 class="mt-5">لديك حساب بالفعل؟</h1>
+    <!-- Send a get request to "/journey/journey._id/edit" to create a new account -->
     <a href="/user/register">انشاء حساب</a>
+
+    <!-- Send a post request with a body to "/user/login" to login -->
+
+    <!-- 
+        json body: {
+            email: input,
+            password: input
+        }
+    -->
+
     <form action="/user/login" method="post">
         <input type="text" placeholder="البريد الاكتروني" name="email">
         <input type="text" placeholder="كلمة المرور" name="password">

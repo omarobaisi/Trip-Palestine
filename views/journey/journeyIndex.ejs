@@ -1,20 +1,29 @@
 <% layout('/layouts/boilerplate') %> 
 
+<!-- Jorneys page -->
+<!-- Recieved an array of all the journeys -->
+
 <div class="mb-5 mt-4">
     <h2>Journeys</h2>
 </div>
 
 <div class="row">
+    <!-- Loop throw the journeys array -->
     <% for(journey of journeys) { %>
+        <!-- for every journey do this -->
         <div class="col-4">
+            <!-- show the first image of the journey -->
             <img src="<%= journey.images[0].url %>" alt="" class="img-fluid">
+            <!-- Journey name -->
             <h5 class="mt-2"><%= journey.name %> </h5>
+            <!-- Send a get request to "/journey/journey._id" to show the journey details -->
             <a class="btn btn-info mt-3" href="/journey/<%= journey._id %>">More</a>
         </div>
     <% } %>
 </div>
 
 <div class="mt-5">
+    <!-- Only authorized people can make a new journey -->
     <% if(currentUser && currentUser.authorization != 'normal') { %> 
         <a class="btn btn-success" href="/journey/New">New Journey</a>
     <% } %> 

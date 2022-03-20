@@ -1,5 +1,26 @@
 <% layout('/layouts/boilerplate') %> 
 
+<!-- Create a new journey page -->
+<!-- Send a post request that is a "multipart/form-data" with a body to "/journey" -->
+
+<!-- 
+    json body: {
+        journey: {
+            name: input,
+            price: input,
+            description: input,
+            date: input,
+        },
+        image: [inputs],
+        routes: [ 
+            {   
+                city: input,
+                location: input,
+            }
+        ]
+    }
+ -->
+
 <h1>New Journey</h1>
 
 <form action="/journey" method="post" enctype="multipart/form-data">
@@ -9,6 +30,7 @@
     <div>
         <input type="number" name="journey[price]" placeholder="price">
     </div>
+    <!-- Array images location -->
     <div class="">
         <input type="file" name="image" id="" multiple>
     </div>
@@ -19,6 +41,7 @@
         <input type="text" name="journey[date]" placeholder="date">
     </div>
 
+    <!-- How many routes to add (work with the javascript in public/JS/newRoutes) -->
     <div class="">
         number of routes: 
         <select id="routesNumber">
@@ -29,6 +52,7 @@
             <option value="5">5</option>
         </select>
     </div>
+    <!-- Routes -->
     <% for(var i=0; i<5; i++) { %> 
         <div class="">
             <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">

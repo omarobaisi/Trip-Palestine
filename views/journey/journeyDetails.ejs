@@ -1,5 +1,8 @@
 <% layout('/layouts/boilerplate') %>
 
+<!-- Journey details page -->
+<!-- Recieved the journey info -->
+
 <h1><%= journey.name %></h1>
 <div class="row">
     <% for(let image of journey.images) { %> 
@@ -18,12 +21,17 @@
 </div>
 
 <div class="my-5">
+    <!-- Only authorized people can delete and edit the journey -->
     <% if(currentUser && journey.user.equals(currentUser._id)) { %> 
+        <!-- Send a post request to "/journey/journey._id?_method=DELETE" to delete it -->
         <form action="/journey/<%= journey._id %>?_method=DELETE" method="POST" style="display: inline;">
             <button class="btn btn-danger">Delete</button>
         </form>
-        
+
+        <!-- Send a get request to "/journey/journey._id/edit" to edit it -->
         <a class="btn btn-warning" href="/journey/<%= journey._id %>/edit">Edit</a>
     <% } %>
 </div>
+
+<!-- Send a get request to "/journey/journey._id/register" to regsiter for the journey -->
 <a class="btn btn-success" href="/journey/<%= journey._id %>/register ">Register</a>

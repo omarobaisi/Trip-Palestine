@@ -1,5 +1,20 @@
 <% layout('/layouts/boilerplate') %>
 
+<!-- Send a coordinator request page -->
+<!-- Send a post request with a body to "/admin/becoordinator" to login -->
+
+<!-- 
+    json body: {
+        info: {
+            name: input,
+            email: input,
+            phone: input,
+            city: input,
+        },
+    }
+-->
+
+<!-- The current logged in user info is included but you can change it -->
 <form action="/admin/becoordinator" method="post">
     <input type="text" name="info[name]" value="<%= currentUser.name %>" placeholder="الاسم">
     <input type="text" name="info[email]" value="<%= currentUser.email %>" placeholder="البريد الالكتروني">

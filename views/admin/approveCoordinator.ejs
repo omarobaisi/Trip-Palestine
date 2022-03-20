@@ -1,5 +1,8 @@
 <% layout('/layouts/boilerplate') %>
 
+<!-- Approve a coordinator page (people who chooses direct payment and they payed us) -->
+<!-- Recieved an array of all the coordinator requests -->
+
 <h1>approve Coordinator</h1>
 
 <table>
@@ -17,11 +20,14 @@
     <% Request.forEach((req) => { %>
         <tbody>
             <tr>
+                <!-- You can view the user profile (get request to "/user/reg.user") -->
                 <th id=""><a href="/user/<%= req.user %> "><%= req.name %></a></th>
                 <th id=""><%= req.email %></th>
                 <th id=""><%= req.phone %></th>
                 <th id=""><%= req.city %></th>
+                <!-- Send a get request to "/admin/reg._id/approvecoordinator" to approve him -->
                 <th id=""><a href="/admin/<%= req._id %>/approvecoordinator">Approve</a></th>
+                <!-- Send a get request to "/admin/reg._id/deniecoordinator" to denie him -->
                 <th id=""><a href="/admin/<%= req._id %>/deniecoordinator">Denie</a></th>
             </tr>
         </tbody>

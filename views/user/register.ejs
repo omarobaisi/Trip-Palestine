@@ -2,6 +2,20 @@
 
 <h1>Register</h1>
 
+<!-- Send a post request with a body to "/user/login" to login -->
+
+<!-- 
+    json body: {
+        user: {
+            name: input,
+            email: input,
+            phone: input,
+            authorization: input,
+        },
+        password: input
+    }
+-->
+
 <form action="/user/register" method="post">
     <input type="text" placeholder="Name" name="user[name]">
     <input type="text" placeholder="Email" name="user[email]">

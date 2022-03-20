@@ -1,11 +1,19 @@
 <% layout('/layouts/boilerplate') %>
+<!-- Used a star css styling found in public/star.css -->
 <link rel="stylesheet" href="/stars.css"> 
+
+<!-- User profile page -->
+<!-- Recieved the user info -->
+<!-- Recieved an array of all the Reviews -->
 
 <h1><%= user.name %> Profile page</h1>
 
+<!-- if the profile is for a coordinator you can review him-->
 <% if(user.authorization === 'coordinator') { %> 
+    <!-- send a get request to "/user/user._id/review/add" (Review page) -->
     <a class="btn btn-success" href="/user/<%= user._id %>/review/add">Review</a>
 
+    <!-- Show all reviews -->
     <h3>Reviews</h3>
     <% user.reviews.forEach((review) => { %>
         <div class="pt-2 pb-1" style="border-top: 1px solid black;">
@@ -15,12 +23,15 @@
         </div>
     <% }); %>
 <% } %>
-
+ 
+<!-- If the current logged in user is a admin send a get request to "/admin/approveregistration" -->
 <% if(user.authorization === 'admin') { %> 
     <a class="btn btn-success" href="/admin/approveregistration">Approve registration</a>
 <% } %>
 
+<!-- If the current logged in user is a admin and the profile is for a coordinator you can remove his coordinator rank -->
 <% if(currentUser.authorization === 'admin' && user.authorization === 'coordinator') { %> 
+    <!-- Send a post request to "/admin/removecoordinator" with a body of { id: user._id } -->
     <form action="/admin/removecoordinator" method="post">
         <input type="hidden" name="id" value="<%= user._id %>">
         <button>تخفيض الرتبة</button>

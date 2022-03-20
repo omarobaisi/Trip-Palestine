@@ -1,11 +1,23 @@
-<% layout('/layouts/boilerplate') %> 
+<% layout('/layouts/boilerplate') %>
 
 <h1>Login</h1>
+
+<!-- Send a post request with a body to "/user/login" to login -->
+
+<!-- 
+    json body: {
+        email: input,
+        password: input
+    }
+ -->
 
 <form action="/user/login" method="post">
     <input type="text" placeholder="Email" name="email" autofocus>
     <input type="text" placeholder="Password" name="password">
     <button>Submit</button>
 </form>
+
+<!-- Get request to "/user/register" to register -->
 <a href="/user/register">Register</a>
+<!-- Get request to "/user/forgot" reset password -->
 <a href="/user/forgot">Forgot Password?</a>

@@ -1,7 +1,31 @@
 <% layout('/layouts/boilerplate') %>
 
+<!-- Edit a journey page -->
+<!-- Recieved the journey info -->
+<!-- Send a post request that is a "multipart/form-data" with a body to "/journey/journey._id?_method=PUT" -->
+
+<!-- 
+    json body: {
+        journey: {
+            name: input,
+            price: input,
+            description: input,
+            date: input,
+        },
+        image: [inputs],
+        routes: [ 
+            {   
+                city: input,
+                location: input,
+            }
+        ],
+        deleteImages: [inputs]
+    }
+ -->
+
 <h1>Edit <%= journey.name %> Journey</h1>
 
+<!-- value have to journey origin value, leave it if you don't want to change it -->
 <form action="/journey/<%= journey._id %>?_method=PUT" method="post" enctype="multipart/form-data">
     <div>
         <input type="text" name="journey[name]" placeholder="name" value="<%= journey.name %>">
@@ -16,10 +40,12 @@
     <div>
         <input type="text" name="journey[date]" placeholder="date" value="<%= journey.date %>">
     </div>
+    <!-- New added imaged array go here -->
     <div>
         <input type="file" name="image" id="" multiple>
     </div>
 
+    <!-- How many routes to add (work with the javascript in public/JS/editRoutes) -->
     <span id="routesNum" style="display: none;"><%= journey.routes.length %></span>
     <div class="">
         number of routes: 
@@ -31,12 +57,15 @@
             <option class="routeNumOption" value="5">5</option>
         </select>
     </div>
+    <!-- Routes -->
     <% for(var i=0; i<5; i++) { %> 
+        <!-- Rotues already in the journey -->
         <% if(journey.routes[i]) { %> 
             <div class="">
                 <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" value="<%= journey.routes[i].city %>">
                 <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" value="<%= journey.routes[i].location %>">
             </div>
+        <!-- New rotues -->
         <% } else { %>
             <div class="">
                 <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
@@ -44,7 +73,8 @@
             </div>
         <% } %> 
     <% } %>
-
+    
+    <!-- Show the journey images and click a checkbox to delete -->
     <div>
         <% journey.images.forEach(function(img, i) {  %>
             <img src="<%= img.url %> " alt="" class="img-fluid">

@@ -1,5 +1,8 @@
 <% layout('/layouts/boilerplate') %>
 
+<!-- Approve a registration page (people who chooses direct payment and they payed us) -->
+<!-- Recieved an array of all the registration requests -->
+
 <h1>approveRegistration</h1>
 
 <table>
@@ -16,15 +19,18 @@
         </tr>
     </thead>
     <% registration.forEach((reg) => { %>
+        <!-- Show all unapproved requests -->
         <% if(reg.approved == false) { %> 
             <tbody>
                 <tr>
-                    <th id=""><a href="/user/<%= reg.user %> "><%= reg.name %></a></th>
+                    <!-- You can view the user profile (get request to "/user/reg.user") -->
+                    <th id=""><a href="/user/<%= reg.user %>"><%= reg.name %></a></th>
                     <th id=""><%= reg.email %></th>
                     <th id=""><%= reg.phone %></th>
                     <th id=""><%= reg.city %></th>
                     <th id=""><%= reg.price %></th>
                     <th id=""><%= reg.approved %></th>
+                    <!-- Send a get request to "/admin/reg._id/approveregistration" to approve him -->
                     <th id=""><a href="/admin/<%= reg._id %>/approveregistration">Approve</a></th>
                 </tr>
             </tbody>

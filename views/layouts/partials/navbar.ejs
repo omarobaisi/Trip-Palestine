@@ -7,12 +7,15 @@
 
     <div class="collapse navbar-collapse" id="navLinks">
       <ul class="navbar-nav">
+        <!-- View home page -->
         <li class="nav-item">
           <a href="/" class="nav-link">HOME</a>
         </li>
+        <!-- View journey page -->
         <li class="nav-item">
             <a href="/journey" class="nav-link">Journeys</a>
         </li>
+        <!-- send a get request to "/search" with an input nammed search (Search for a journey) -->
         <li class="nav-item ml-5">
             <form action="/search" method="GET">
                 <input type="text" name="search" placeholder="What ot serach for" required>
@@ -21,17 +24,23 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <!-- If your logged in -->
         <% if(currentUser) { %>
+            <!-- send a get request to "/user/logout" to Logout -->
             <li class="nav-item">
                 <a href="/user/logout" class="nav-link">Logout</a>
             </li>
+            <!-- send a get request to "/user/currentUser._id" to go to the user profile -->
             <li class="nav-item">
-                <a href="/user/<%= currentUser._id %> " class="nav-link"><%= currentUser.name %></a>
+                <a href="/user/<%= currentUser._id %>" class="nav-link"><%= currentUser.name %></a>
             </li>
+        <!-- If your not logged in -->
         <% } else { %>
+            <!-- send a get request to "/user/login" to Login -->
             <li class="nav-item">
                 <a href="/user/login" class="nav-link">Login</a>
             </li>
+            <!-- send a get request to "/user/register" to Register -->
             <li class="nav-item">
                 <a href="/user/register" class="nav-link">Register</a>
             </li>

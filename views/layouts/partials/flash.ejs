@@ -1,12 +1,13 @@
 <div class="row mt-2">
     <div class="col-2"></div>
     <div class="col-8">
+        <!-- if there is a error flash message -->
         <% if(error && error.length > 0){ %>
             <div class="alert alert-danger" role="alert">
                 <%= error %>
             </div>
         <% } %>
-        
+        <!-- if there is a success flash message -->
         <% if(success && success.length > 0){ %>
             <div class="alert alert-success" role="alert">
                 <%= success %>
