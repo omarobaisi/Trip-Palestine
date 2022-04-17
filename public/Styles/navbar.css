@@ -1,0 +1,144 @@
+/* General */
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: 500ms ease;
+}
+
+a:hover {
+    color: white;
+}
+
+/*! Navbar */
+
+#navbar {
+    width: 100%;
+    height: 40px;
+    background-color: #EE2553;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.nav-left, .nav-right, .form-label {
+    display: flex;
+    align-items: center;
+}
+
+.nav-header {
+    margin: 0;
+    height: 100%;
+    align-items: center;
+}
+
+.bar {
+    padding: 0 10px;
+}
+
+.nav-user {
+    padding: 0 20px;
+}
+
+.nav-sideload {
+    display: none;
+    position: relative;
+    height: 194vh;
+    width: 300px;
+    background-color: #EE2553;
+    border-right: 1px solid black;
+    transition: display 1s ease;
+}
+
+.form-input {
+    background-color: #f1f7fe;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 20px;
+    transition: border-color 200ms ease;
+}
+
+.form-input:focus {
+    border-color: #EE2553;
+}
+
+.form-botton {
+    margin-right: 5px;
+    font-size: 20px;
+    background-color: #EE2553;
+    color: white;
+    height: 30px;
+    border: 0;
+    transition: 300ms ease-in-out;
+}
+
+.form-botton:hover {
+    background-color: white;
+    border-radius: 5px;
+    color: #EE2553;
+}
+
+.mobileNav-header, .mobileNav-search , .mobileNav-label{
+    display: none;
+}
+
+/*! Mobile */
+
+/* Mobile Search */
+
+.mobileNav-search {
+    padding: 0 10px;
+}
+
+.mobileNav-label {
+    width: 100vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.mobileNav-input {
+    width: 90%;
+    background-color: #f1f7fe;
+    height: 30px;
+    border: 0;
+    border-radius: 3px;
+    transition: border-color 200ms ease;
+}
+.form-input:focus {
+    border-color: #EE2553;
+}
+.removeInput {
+    padding: 0 10px;
+}
+
+/*! Small Screens */
+
+@media (max-width: 650px) {
+    .nav-header, .nav-search, .nav-right{
+        display: none;
+    }
+
+    .mobileNav-header, .mobileNav-search {
+        display: block;
+    }
+
+    .nav-sideload {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 350px) {
+    .nav-sideload {
+        width: 80vw;
+    }
+}
