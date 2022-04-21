@@ -1,32 +1,14 @@
 <link rel="stylesheet" href="/Styles/navbar.css">
 
 <nav id="navbar">
+
     <div class="nav-left">
-
-        <!--! Side Bar -->
-        <div class="nav-sideload">
-            <h1>a7a</h1>
-        </div>
-        <a class="bar"><i class="fa-solid fa-bars"></i></a>
-
-        <!-- Header -->
-        <a class="nav-header" href="/">Trip Palestine</a>
+        <!-- User -->
+        <a href="/user/profile" class="nav-user"><i class="fa-solid fa-user"></i></a>
+        <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
     </div>
 
-    <!--! Mobile -->
-    <a class="mobileNav-header" href="/">Trip Palestine</a>
-    <div class="mobileNavSearch">
-        <!-- Show search input button -->
-        <div href="" class="mobileNav-search"><i class="fa-solid fa-magnifying-glass"></i></div>
-        <form action="/search" method="GET" class="mobileNav-label">
-            <!-- Search input -->
-            <input dir="rtl" type="text" placeholder="ابحث هنا" class="mobileNav-input">
-            <!-- Hide search input button -->
-            <div class="removeInput"><i class="fa-solid fa-x"></i></div>
-        </form>
-    </div>
-
-    <!-- Desctop Search -->
+    <!-- Desktop Search -->
     <div class="nav-search">
         <form action="/search" method="GET" class="form-label">
             <button type="submit" class="form-botton">بحث</button>
@@ -34,15 +16,39 @@
         </form>
     </div>
 
+    <!--! Mobile -->
+
+    <!-- Mobile Search -->
+    <div class="mobileNavSearch">
+        <a class="mobileSearchButton"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+        <form action="/search" method="GET" class="mobileSearchForm">
+            <input dir="rtl" type="text" placeholder="ابحث هنا" class="mobileNavInput">
+            <a class="hideMobileForm"><i class="fa-solid fa-x"></i></a>
+        </form>
+    </div>
+    
+    <div class="mobileNavHeader"><a href="/">Trip Palestine</a></div>
+    
+
     <div class="nav-right">
-        <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
-        <!-- User -->
-        <% if(currentUser) { %>
-            <a href="/user/profile" class="nav-user"><i class="fa-solid fa-user"></i></a>
-        <!-- If your not logged in -->
-        <% } else { %>
-            <a href="/user/login" class="nav-user"><i class="fa-solid fa-user"></i></a>
-        <% } %>
+        <a class="nav-header" href="/">Trip Palestine</a>
+        <a class="openNav"><i class="fa-solid fa-bars"></i></a>
+        <a class="closeNav"><i class="fa-solid fa-bars"></i></a>
+    </div>
+</nav>
+
+<!--! SideNav -->
+<nav class="sideNav">
+    <div class="innerSideNav">
+        <!-- Mobile -->
+        <a href="/user/profile" class="sideNavElement mobileSide">الحساب الشخصي</a>
+        <a href="/admin/becoordinator" class="sideNavElement mobileSide">أصبح مضيفا</a>
+        <!-- Both -->
+        <a class="sideNavElement">صفحة 1</a>
+        <a class="sideNavElement">صفحة 2</a>
+        <a class="sideNavElement">صفحة 3</a>
+        <a class="sideNavElement">صفحة 4</a>
     </div>
 </nav>
 

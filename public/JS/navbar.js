@@ -1,49 +1,54 @@
-//! Side Bar
+// //! Side Bar
 
-const bar = document.querySelector('.bar');
-const sideload = document.querySelector('.nav-sideload')
-const searchButton = document.querySelector('.mobileNav-search')
-const header = document.querySelector('.mobileNav-header')
-const host = document.querySelector('.host')
+const openNav = document.querySelector(".openNav")
+const closeNav = document.querySelector(".closeNav")
+const sideNav = document.querySelector(".sideNav")
+const innerSideNav = document.querySelector(".innerSideNav")
 
-sideload.style.display = 'none'
-
-bar.addEventListener('click', function() {
-    if(sideload.style.display == 'none') {
-        sideload.style.display = 'block'
-        searchButton.style.display = 'none'
-        header.style.display = 'none'
-        host.style.display = 'none'
-    } else {
-        sideload.style.display = 'none'
-        if(screen.width <= 650) {
-            searchButton.style.display = 'block'
-            header.style.display = 'block'
-        } else {
-            host.style.display = 'block'
-        }
-    }
+openNav.addEventListener('click', () => {
+  sideNav.style.width = "250px";
+  closeNav.style.display = 'block'
+  openNav.style.display = 'none'
+  ShowNavText()
 })
 
-
-//! Mobile Search
-
-const mobileLabel = document.querySelector('.mobileNav-label')
-const x = document.querySelector('.removeInput')
-
-
-searchButton.addEventListener('click', function() {
-    header.style.display = 'none'
-    searchButton.style.display = 'none'
-    bar.style.display = 'none'
-
-    mobileLabel.style.display = 'flex'
+closeNav.addEventListener('click', () => {
+  sideNav.style.width = "0px";
+  openNav.style.display = 'block'
+  closeNav.style.display = 'none'
+  hideNavText()
 })
 
-x.addEventListener('click', function() {
-    header.style.display = 'block'
-    searchButton.style.display = 'block'
-    bar.style.display = 'block'
+const ShowNavText = () => {
+  setTimeout(() => {
+    innerSideNav.style.display = 'flex'
+  }, 250)
+}
 
-    mobileLabel.style.display = 'none'
+const hideNavText = () => {
+  setTimeout(() => {
+    innerSideNav.style.display = 'none'
+  }, 80)
+}
+
+
+// //! Mobile Search
+
+const mobileSearchButton = document.querySelector('.mobileSearchButton')
+const hideMobileForm = document.querySelector('.hideMobileForm')
+const mobileSearchForm = document.querySelector('.mobileSearchForm')
+const mobileNavHeader = document.querySelector('.mobileNavHeader')
+
+mobileSearchButton.addEventListener('click', () => {
+  mobileSearchButton.style.display = 'none';
+  mobileNavHeader.style.display = 'none';
+  openNav.style.display = 'none';
+  mobileSearchForm.style.display = 'flex';
+})
+
+hideMobileForm.addEventListener('click', () => {
+  mobileSearchForm.style.display = 'none';
+  mobileSearchButton.style.display = 'flex';
+  mobileNavHeader.style.display = 'flex';
+  openNav.style.display = 'flex';
 })
