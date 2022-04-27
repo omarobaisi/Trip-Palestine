@@ -4,7 +4,18 @@
 
     <div class="nav-left">
         <!-- User -->
-        <a href="/user/profile" class="nav-user"><i class="fa-solid fa-user"></i></a>
+        <div class="navUser">
+            <button class="navUserIcon"><i class="fa-solid fa-user"></i></button>
+            <div class="navUserDropdown">
+                <% if(currentUser) { %>
+                    <div class="dropdownElement"><a href="/user/<%= currentUser._id %>"><%= currentUser.name %></a></div>
+                    <div class="dropdownElement"><a href="/user/logout">تسجيل الخروج</a></div>
+                <% } else { %>
+                    <div class="dropdownElement"><a href="/user/login">تسجيل الدخول</a></div>
+                    <div class="dropdownElement"><a href="/user/register">انشاء حساب</a></div>
+                <% } %>
+            </div>
+        </div>
         <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
     </div>
 
@@ -42,13 +53,23 @@
 <nav class="sideNav">
     <div class="innerSideNav">
         <!-- Mobile -->
-        <a href="/user/profile" class="sideNavElement mobileSide">الحساب الشخصي</a>
+        <% if(currentUser) { %>
+            <a href="/user/<%= currentUser._id %>" class="sideNavElement mobileSide"><%= currentUser.name %></a>
+        <% } else { %>
+            <a href="/user/login" class="sideNavElement mobileSide">تسجيل الدخول</a>
+            <a href="/user/register" class="sideNavElement mobileSide">انشاء حساب</a>
+        <% } %>
+
         <a href="/admin/becoordinator" class="sideNavElement mobileSide">أصبح مضيفا</a>
         <!-- Both -->
         <a class="sideNavElement">صفحة 1</a>
         <a class="sideNavElement">صفحة 2</a>
         <a class="sideNavElement">صفحة 3</a>
         <a class="sideNavElement">صفحة 4</a>
+        <!-- Mobile -->
+        <% if(currentUser) { %>
+            <a href="/user/logout" class="sideNavElement mobileSide">تسجيل الخروج</a>
+        <% } %>
     </div>
 </nav>
 

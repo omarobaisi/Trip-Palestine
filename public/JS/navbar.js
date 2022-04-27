@@ -1,4 +1,4 @@
-// //! Side Bar
+//! Side Bar
 
 const openNav = document.querySelector(".openNav")
 const closeNav = document.querySelector(".closeNav")
@@ -32,7 +32,7 @@ const hideNavText = () => {
 }
 
 
-// //! Mobile Search
+//! Mobile Search
 
 const mobileSearchButton = document.querySelector('.mobileSearchButton')
 const hideMobileForm = document.querySelector('.hideMobileForm')
@@ -51,4 +51,30 @@ hideMobileForm.addEventListener('click', () => {
   mobileSearchButton.style.display = 'flex';
   mobileNavHeader.style.display = 'flex';
   openNav.style.display = 'flex';
+})
+
+//! User
+
+let toggled = false
+
+const navUserIcon = document.querySelector('.navUserIcon')
+const navUserDropdown = document.querySelector('.navUserDropdown')
+const body = document.querySelector('body')
+
+navUserIcon.addEventListener('click', () => {
+  if(toggled === true) {
+    toggled = false
+    navUserDropdown.style.display = 'none';
+  } else if (toggled === false) {
+    toggled = true
+    navUserDropdown.style.display = 'block';
+  }
+})
+
+// Click on the anything expect navUserIcon
+document.addEventListener('click', function(e) {
+  if ( !navUserIcon.contains(e.target) ) {
+    toggled = false
+    navUserDropdown.style.display = 'none';
+  }
 })

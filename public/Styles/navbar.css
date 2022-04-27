@@ -38,7 +38,7 @@ a:hover {
     display: none;
 }
 
-.nav-user, .openNav, .closeNav, .mobileNavSearch {
+.navUserIcon, .openNav, .closeNav, .mobileNavSearch {
     padding: 0 10px;
 }
 
@@ -74,6 +74,27 @@ a:hover {
     background-color: white;
     border-radius: 5px;
     color: #EE2553;
+}
+
+/* User */
+
+.navUserIcon {
+    height: 40px;
+    background-color: #EE2553;
+    border: 0;
+}
+
+.navUserDropdown {
+    display: none;
+    position: absolute;
+    background-color: #EE2553;
+    padding: 20px 0;
+    padding-left: 60px;
+    padding-right: 10px;
+}
+
+.dropdownElement {
+    padding-bottom: 5px;
 }
 
 /*! SideNav */
@@ -120,6 +141,7 @@ a:hover {
     padding-left: 1.7vw;
 }
 
+
 /*! Small Screens */
 
 @media (max-width: 650px) {
@@ -131,6 +153,10 @@ a:hover {
     /* Show search and header on mobile mode */
     .mobileNavSearch, .mobileNavHeader  {
         display: flex;
+    }
+
+    .mobileSide {
+        display: block;
     }
 }
 
