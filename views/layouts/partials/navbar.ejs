@@ -2,10 +2,40 @@
 
 <nav id="navbar">
 
+    <div class="nav-right">
+        <a class="openNav"><i class="fa-solid fa-bars"></i></a>
+        <a class="closeNav"><i class="fa-solid fa-bars"></i></a>
+        <a class="nav-header" href="/">Trip Palestine</a>
+    </div>
+
+    <!-- Desktop Search -->
+    <div class="nav-search">
+        <form action="/search" method="GET" class="form-label">
+            <input dir="rtl" type="text" placeholder="ابحث هنا" class="form-input">
+            <button type="submit" class="form-botton">بحث</button>
+        </form>
+    </div>
+
+    <!--! Mobile -->
+
+    <!-- Mobile Search -->
+    <div class="mobileNavHeader"><a href="/">Trip Palestine</a></div>
+    <div class="mobileNavSearch">
+        <a class="mobileSearchButton"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+        <form action="/search" method="GET" class="mobileSearchForm">
+            <a class="hideMobileForm"><i class="fa-solid fa-x"></i></a>
+            <input dir="rtl" type="text" placeholder="ابحث هنا" class="mobileNavInput">
+        </form>
+    </div>
+    
+    
+    
     <div class="nav-left">
         <!-- User -->
         <div class="navUser">
-            <button class="navUserIcon"><i class="fa-solid fa-user"></i></button>
+            <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
+            
             <div class="navUserDropdown">
                 <% if(currentUser) { %>
                     <div class="dropdownElement"><a href="/user/<%= currentUser._id %>"><%= currentUser.name %></a></div>
@@ -15,38 +45,10 @@
                     <div class="dropdownElement"><a href="/user/register">انشاء حساب</a></div>
                 <% } %>
             </div>
+            <button class="navUserIcon"><i class="fa-solid fa-user"></i></button>
         </div>
-        <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
-    </div>
-
-    <!-- Desktop Search -->
-    <div class="nav-search">
-        <form action="/search" method="GET" class="form-label">
-            <button type="submit" class="form-botton">بحث</button>
-            <input dir="rtl" type="text" placeholder="ابحث هنا" class="form-input">
-        </form>
-    </div>
-
-    <!--! Mobile -->
-
-    <!-- Mobile Search -->
-    <div class="mobileNavSearch">
-        <a class="mobileSearchButton"><i class="fa-solid fa-magnifying-glass"></i></a>
-
-        <form action="/search" method="GET" class="mobileSearchForm">
-            <input dir="rtl" type="text" placeholder="ابحث هنا" class="mobileNavInput">
-            <a class="hideMobileForm"><i class="fa-solid fa-x"></i></a>
-        </form>
     </div>
     
-    <div class="mobileNavHeader"><a href="/">Trip Palestine</a></div>
-    
-
-    <div class="nav-right">
-        <a class="nav-header" href="/">Trip Palestine</a>
-        <a class="openNav"><i class="fa-solid fa-bars"></i></a>
-        <a class="closeNav"><i class="fa-solid fa-bars"></i></a>
-    </div>
 </nav>
 
 <!--! SideNav -->
@@ -73,4 +75,4 @@
     </div>
 </nav>
 
-<script type="text/javascript" src="JS/navbar.js"></script>
+<script type="text/javascript" src="/JS/navbar.js"></script>
