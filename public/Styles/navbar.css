@@ -108,6 +108,7 @@ a:hover {
     float: right;
     transition: 0.4s;
     background-color: #EE2553;
+    position: absolute;
 }
 
 .innerSideNav {
