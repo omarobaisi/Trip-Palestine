@@ -1,22 +1,39 @@
 <% layout('/layouts/boilerplate') %> 
+<link rel="stylesheet" type="text/css" href="/Styles/registerForm.css">
 
-<h1>Register</h1>
+<section class="formRegister">
+    <form action="/user/register" method="post" class="form-container">
+       <h1 class="form-header">انشاء حساب</h1>
 
-<!-- Send a post request with a body to "/user/login" to login -->
+       <label for="" class="form-label">
+          <input type="email" placeholder="" class="form-input" name="user[name]">
+          <p class="form-placeholder">اسم المستخدم</p>
+       </label>
+       <label for="" class="form-label">
+          <input type="email" placeholder="" class="form-input" name="user[email]">
+          <p class="form-placeholder">البريد الالكتروني</p>
+       </label>
+       <label for="" class="form-label">
+          <input type="email" placeholder="" class="form-input" name="user[phone]">
+          <p class="form-placeholder">رقم الهاتف</p>
+       </label>
+       <div class="passwordDiv">
+          <label for="" class="form-label passwordLabel">
+             <input type="text" placeholder="" class="form-input" id="password" name="password">
+             <p class="form-placeholder">كلمة السر</p>
+          </label>
+          <label for="" class="form-label passwordLabel">
+             <input type="text" placeholder="" class="form-input" id="passwordRepeat">
+             <p class="form-placeholder" id="passwordRepeatPlaceholder">اعادة ادخال كلمة السر</p>
+          </label>
+       </div>
+       
 
-<!-- 
-    json body: {
-        user: {
-            name: input,
-            email: input,
-            phone: input,
-            authorization: input,
-        },
-        password: input
-    }
--->
+       <button type="submit" class="form-botton">تسجيل الدخول</button>
+    </form>
+ </section>
 
-<form action="/user/register" method="post">
+<!-- <form action="/user/register" method="post">
     <input type="text" placeholder="Name" name="user[name]">
     <input type="text" placeholder="Email" name="user[email]">
     <input type="text" placeholder="Phone Number" name="user[phone]">
@@ -27,4 +44,4 @@
     </select>
     <input type="text" placeholder="Password" name="password">
     <button>Submit</button>
-</form>
+</form> -->

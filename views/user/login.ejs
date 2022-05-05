@@ -1,23 +1,19 @@
 <% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/Styles/loginForm.css">
 
-<h1>Login</h1>
+<section class="form-section">
+    <form action="/user/login" method="post" class="form-container">
+       <h1 class="form-header">تسجيل الدخول</h1>
 
-<!-- Send a post request with a body to "/user/login" to login -->
+       <label for="" class="form-label">
+          <input type="email" placeholder="" class="form-input" name="email" autofocus>
+          <p class="form-placeholder">البريد الالكتروني</p>
+       </label>
+       <label for="" class="form-label">
+          <input type="text" placeholder="" class="form-input" id="password" name="password">
+          <p class="form-placeholder">كلمة السر</p>
+       </label>
 
-<!-- 
-    json body: {
-        email: input,
-        password: input
-    }
- -->
-
-<form action="/user/login" method="post">
-    <input type="text" placeholder="Email" name="email" autofocus>
-    <input type="text" placeholder="Password" name="password">
-    <button>Submit</button>
-</form>
-
-<!-- Get request to "/user/register" to register -->
-<a href="/user/register">Register</a>
-<!-- Get request to "/user/forgot" reset password -->
-<a href="/user/forgot">Forgot Password?</a>
+       <button type="submit" class="form-botton">تسجيل الدخول</button>
+    </form>
+ </section>
