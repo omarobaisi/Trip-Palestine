@@ -1,0 +1,125 @@
+.formRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container {
+    height: 500px;
+    width: 450px;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /*  */
+  
+  .form-header {
+    text-align: center;
+    color: #EE2553;
+    width: 100%;
+    border-right: 5px solid #EE2553;
+  }
+  
+  .form-label {
+    position: relative;
+    width: 60%;
+    padding: 15px 0;
+  }
+  
+  .form-input {
+    background-color: #f1f7fe;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 8px 0;
+    background-color: white;
+    font-size: 20px;
+    transition: border-color 200ms ease;
+  }
+  
+  .form-input:focus {
+    border-color: #EE2553;
+  }
+  
+  .form-placeholder {
+    font-size: 20px;
+    padding: 0 10px;
+    margin-right: 10px;
+    position: absolute;
+    float: right;
+    top: 10px;
+    transition: 200ms ease-in-out;
+    pointer-events: none;
+    background-color: white;
+  }
+  
+  /* .form-input:focus + .form-placeholder {
+      position: absolute;
+      top: -5px;
+      font-size: 15px;
+      background-color: white;
+  } */
+  
+  /*  */
+  
+  .passwordDiv {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .passwordLabel {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /*  */
+  
+  .form-botton {
+    font-size: 20px;
+    background-color: white;
+    color: gray;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 15px 55px;
+    transition: 300ms ease-in-out;
+    margin-top: 10px;
+  }
+  
+  .form-botton:hover {
+    color: #EE2553;
+    border: 2px solid #EE2553;
+  }
+  
+  /*  */
+  
+  @media (max-width: 500px) {
+    .form-container {
+      width: 90vw;
+    }
+  
+    label {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 435px) {
+  
+    #passwordRepeatPlaceholder {
+      font-size: 15px;
+      top: 17px;
+    }
+  
+    #passwordRepeat:focus + #passwordRepeatPlaceholder{
+      position: absolute;
+      top: -5px;
+      font-size: 15px;
+      background-color: white;
+    }
+  }

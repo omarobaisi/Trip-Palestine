@@ -1,0 +1,38 @@
+.mainImageDiv {
+    text-align: center;
+}
+
+.mainImage {
+    width: 100%;
+}
+
+.mainImageCenterDiv {
+    position: absolute;
+    top: 30vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 120px;
+}
+
+.mainImageButton {
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 13px 75px;
+    transition: 300ms ease-in-out;
+    margin-bottom: 50px;
+  }
+  
+  .mainImageButton:hover {
+    color: #EE2553;
+    border: 2px solid #EE2553;
+  }
+
+@media (max-width: 650px) {
+    .mainImageCenterDiv {
+        top: 40vw;
+    }
+}

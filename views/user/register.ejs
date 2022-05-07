@@ -1,20 +1,20 @@
 <% layout('/layouts/boilerplate') %> 
-<link rel="stylesheet" type="text/css" href="/Styles/registerForm.css">
+<link rel="stylesheet" type="text/css" href="/registerForm/registerForm.css">
 
 <section class="formRegister">
     <form action="/user/register" method="post" class="form-container">
        <h1 class="form-header">انشاء حساب</h1>
 
        <label for="" class="form-label">
-          <input type="email" placeholder="" class="form-input" name="user[name]">
+          <input type="text" placeholder="" class="form-input" name="user[name]">
           <p class="form-placeholder">اسم المستخدم</p>
        </label>
        <label for="" class="form-label">
-          <input type="email" placeholder="" class="form-input" name="user[email]">
+          <input type="text" placeholder="" class="form-input" name="user[email]">
           <p class="form-placeholder">البريد الالكتروني</p>
        </label>
        <label for="" class="form-label">
-          <input type="email" placeholder="" class="form-input" name="user[phone]">
+          <input type="number" placeholder="" class="form-input" name="user[phone]">
           <p class="form-placeholder">رقم الهاتف</p>
        </label>
        <div class="passwordDiv">
@@ -33,7 +33,7 @@
     </form>
  </section>
 
- <script type="text/javascript" src="/JS/registerForm.js"></script>
+ <script type="text/javascript" src="/registerForm/registerForm.js"></script>
 
 <!-- <form action="/user/register" method="post">
     <input type="text" placeholder="Name" name="user[name]">
