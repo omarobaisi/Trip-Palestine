@@ -57,14 +57,15 @@
     top: 10px;
     transition: 200ms ease-in-out;
     pointer-events: none;
+    background-color: white;
   }
   
-  .form-input:focus + .form-placeholder {
+  /* .form-input:focus + .form-placeholder {
       position: absolute;
       top: -5px;
       font-size: 15px;
       background-color: white;
-  }
+  } */
   
   /*  */
   

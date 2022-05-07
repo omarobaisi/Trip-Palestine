@@ -58,12 +58,6 @@
     pointer-events: none;
   }
   
-  .form-input:focus + .form-placeholder {
-      position: absolute;
-      top: -20px;
-      font-size: 15px;
-  }
-  
   .form-botton {
     font-size: 20px;
     background-color: white;
