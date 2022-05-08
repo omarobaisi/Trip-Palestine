@@ -1,5 +1,9 @@
+/*  */
+
 .mainImageDiv {
+    position: relative;
     text-align: center;
+    color: white;
 }
 
 .mainImage {
@@ -8,11 +12,14 @@
 
 .mainImageCenterDiv {
     position: absolute;
-    top: 30vw;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 120px;
+}
+
+.mainImageText {
+    font-size: 70px;
+    padding: 30px 0;
 }
 
 .mainImageButton {
@@ -26,13 +33,13 @@
     margin-bottom: 50px;
   }
   
-  .mainImageButton:hover {
+.mainImageButton:hover {
     color: #EE2553;
     border: 2px solid #EE2553;
-  }
+}
 
 @media (max-width: 650px) {
-    .mainImageCenterDiv {
-        top: 40vw;
-    }
+    
 }
+
+/*  */
