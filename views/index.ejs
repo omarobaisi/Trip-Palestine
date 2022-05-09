@@ -10,6 +10,43 @@
 </div>
 
 
+<div class="imagesGrid">
+    <div class="gridRow1">
+        <div class="gridImgDiv img1">
+            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
+            <div class="innerGrid">
+                <div class="innerGridText">Visit Jerusalem</div>
+            </div>
+        </div>
+        <div class="gridImgDiv img2">
+            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
+            <div class="innerGrid">
+                <div class="innerGridText">Visit Jerusalem</div>
+            </div>
+        </div>
+    </div>
+    <div class="gridRow2">
+        <div class="gridImgDiv img3">
+            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
+            <div class="innerGrid">
+                <div class="innerGridText">Visit Jerusalem</div>
+            </div>
+        </div>
+        <div class="gridImgDiv img4">
+            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
+            <div class="innerGrid">
+                <div class="innerGridText">Visit Jerusalem</div>
+            </div>
+        </div>
+        <div class="gridImgDiv img5">
+            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
+            <div class="innerGrid">
+                <div class="innerGridText">Visit Jerusalem</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Home page -->
 <!-- Recieved an array of all the journeys -->
@@ -19,19 +56,22 @@
     <a href="/journey" class="badge float-right">Show more</a>
 </div>
 
-<div class="row">
-    <!-- Loop throw the journeys array -->
-    <% for(journey of journeys) { %>
+
+<div class="Journeys">
+    
+    <!-- Index of the last 12 journeys of they exist -->
+    <% for(let i=journeys.length-1; i>=journeysLength; i--) { %>
         <!-- for every journey do this -->
-        <div class="col-4">
+        <div class="journey">
             <!-- show the first image of the journey -->
-            <img src="<%= journey.images[0].url %>" alt="" class="img-fluid">
+            <img src="<%= journeys[i].images[0].url %>" alt="" class="journeyImg">
             <!-- Journey name -->
-            <h5 class="mt-2"><%= journey.name %> </h5>
+            <h5 class="mt-2"><%= journeys[i].name %> </h5>
             <!-- Send a get request to "/journey/journey._id" to show the journey details -->
-            <a class="btn btn-info mt-3" href="/journey/<%= journey._id %>">More</a>
+            <a class="btn btn-info mt-3" href="/journey/<%= journeys[i]._id %>">More</a>
         </div>
-    <% } %>
+    <% } %> 
+
 </div>
 
 <div class="mt-5">

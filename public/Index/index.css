@@ -1,4 +1,4 @@
-/*  */
+/*! Main Image */
 
 .mainImageDiv {
     position: relative;
@@ -42,4 +42,101 @@
     
 }
 
-/*  */
+/*! Images Grid */
+
+.gridImgDiv {
+    margin: 10px 10px;
+    position: relative;
+    text-align: center;
+}
+
+.gridImg {
+    object-fit: cover;
+    width: 100%;
+}
+
+.innerGrid {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+    transition: 300ms ease-in-out;
+}
+
+.innerGridText {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 0;
+    transition: 300ms ease-in-out;
+}
+
+.innerGrid:hover {
+    background-color: #000000aa;
+}
+
+.innerGrid:hover > .innerGridText {
+    opacity: 100%;
+}
+
+@media (min-width: 651px) {
+    .imagesGrid {
+        margin: 0 5%;
+    }
+
+    .gridRow1, .gridRow2 {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .img1 {
+        width: 35%;
+    }
+    .img2 {
+        width: 65%;
+    }
+    .img3 {
+        width: 33%;
+    }
+    .img4 {
+        width: 33%;
+    }
+    .img5 {
+        width: 33%;
+    }
+    
+    .gridImg {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 651px) {
+    .imagesGrid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gridImg {
+        width: 90vw;
+    }
+}
+
+/*! Latest 12 Journeys */
+
+.Journeys {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.journeyImg {
+    width: 90%;
+}

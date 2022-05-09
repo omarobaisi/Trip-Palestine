@@ -6,7 +6,16 @@ module.exports.home = async (req, res, next) => {
     if(!journeys) {
         next(new ExpressError('No journeys found', 404));
     }
-    res.render('index', {journeys});
+
+    // Index of the last 12 journeys of they exist
+    let journeysLength = 0;
+    if(journeys.length < 12) {
+        journeysLength = journeys.length-journeys.length;
+    } else {
+        journeysLength = journeys.length-12;
+    }
+
+    res.render('index', {journeys, journeysLength});
 }
 
 module.exports.search = async (req, res) => {
