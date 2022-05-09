@@ -131,12 +131,16 @@
 
 /*! Latest 12 Journeys */
 
-.Journeys {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
 
 .journeyImg {
-    width: 90%;
+    width: 100%;
 }
+
+@media (min-width: 650px) {
+    .Journeys {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
