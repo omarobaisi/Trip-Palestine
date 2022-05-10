@@ -6,3 +6,13 @@ body {
 .container {
     padding-top: 70px;
 }
+
+footer {
+    margin-top: 50px;
+    height: 150px;
+    border-top: 2px solid #EE2553;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
