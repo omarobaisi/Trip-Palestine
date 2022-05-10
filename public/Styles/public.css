@@ -11,8 +11,35 @@ footer {
     margin-top: 50px;
     height: 150px;
     border-top: 2px solid #EE2553;
-    background-color: #f3f3f3;
+    background-color: #191919;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: white;
+}
+
+.flash {
+    display: flex;
+    justify-content: center;
+}
+
+.error, .success {
+    color: black;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 80px;
+}
+
+.error {
+    background-color: #f8d7da;
+}
+
+.success {
+    background-color: #d4edda;
+}
+
+@media (max-width: 650px) {
+    .error, .success {
+        margin: 10px 50px;
+    }
 }
