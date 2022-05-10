@@ -11,7 +11,7 @@ a {
 }
 
 a:hover {
-    color: white;
+    color: #EE2553;
 }
 
 .sideNav {
@@ -24,8 +24,9 @@ a:hover {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 40px;
-    background-color: #EE2553;
+    height: 70px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #EE2553;
     position: fixed;
     z-index: 1;
 }
@@ -43,6 +44,15 @@ a:hover {
     padding: 0 10px;
 }
 
+.nav-header {
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.host {
+    font-size: 20px;
+}
+
 /* Search */
 
 .navFormLabel {
@@ -50,25 +60,33 @@ a:hover {
 }
 
 .navFormInput {
-    background-color: #f1f7fe;
     outline: none;
-    height: 30px;
+    background-color: #fcfcfc;
+    height: 40px;
     width: 100%;
-    border: 0;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    border-left: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: white;
     font-size: 20px;
-    transition: border-color 200ms ease;
+    transition: border 500ms ease;
+}
+
+.navFormInput:focus {
+    border-right: 2px solid #EE2553;
+    border-top: 2px solid #EE2553;
+    border-bottom: 2px solid #EE2553;
 }
 
 .navFormBotton {
     font-size: 20px;
     background-color: white;
     color: #EE2553;
-    height: 32px;
+    height: 46px;
     border: white;
-    border-right: 1px solid #EE2553;
+    border: 2px solid #EE2553;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     transition: 300ms ease-in-out;
@@ -77,9 +95,11 @@ a:hover {
 /* User */
 
 .navUserIcon {
-    height: 40px;
+    height: 35px;
     background-color: #EE2553;
     border: 0;
+    border-radius: 50%;
+    margin: 0 10px;
 }
 
 .navUserDropdown {
@@ -87,18 +107,30 @@ a:hover {
     position: absolute;
     background-color: #EE2553;
     padding: 20px 10px;
+    width: 120px;
+    margin-top: 16px;
 }
 
 .dropdownElement {
     padding-bottom: 5px;
 }
 
-.fa-user {
-    transition: 500ms ease;
+.dropdownLink {
+    color: white;
 }
 
-.fa-user:hover {
+.dropdownLink:hover {
+    color: black;
+}
+
+.fa-user {
+    transition: 500ms ease;
     color: white;
+}
+
+
+.navUserIcon:hover > .fa-user  {
+    color: black;
 }
 
 /*! SideNav */
@@ -111,6 +143,8 @@ a:hover {
     background-color: #EE2553;
     position: fixed;
     z-index: 1;
+    margin-top: 70px;
+    padding-top: 15px;
 }
 
 .innerSideNav {
@@ -120,7 +154,12 @@ a:hover {
 }
 
 .sideNavElement {
+    color: #ffffff;
     padding: 8px 8px 8px 32px;
+}
+
+.sideNavElement:hover {
+    color: black;
 }
 
 /*! Mobile */
@@ -138,7 +177,7 @@ a:hover {
 .mobileNavInput {
     width: 90vw;
     background-color: #f1f7fe;
-    height: 30px;
+    height: 45px;
     border: 0;
     border-radius: 3px;
 }

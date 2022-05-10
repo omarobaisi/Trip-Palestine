@@ -34,15 +34,16 @@
     <div class="nav-left">
         <!-- User -->
         <div class="navUser">
+
             <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
             
             <div class="navUserDropdown">
                 <% if(currentUser) { %>
-                    <div class="dropdownElement"><a href="/user/<%= currentUser._id %>"><%= currentUser.name %></a></div>
-                    <div class="dropdownElement"><a href="/user/logout">تسجيل الخروج</a></div>
+                    <div class="dropdownElement"><a class="dropdownLink" href="/user/<%= currentUser._id %>"><%= currentUser.name %></a></div>
+                    <div class="dropdownElement"><a class="dropdownLink" href="/user/logout">تسجيل الخروج</a></div>
                 <% } else { %>
-                    <div class="dropdownElement"><a href="/user/login">تسجيل الدخول</a></div>
-                    <div class="dropdownElement"><a href="/user/register">انشاء حساب</a></div>
+                    <div class="dropdownElement"><a class="dropdownLink" href="/user/login">تسجيل الدخول</a></div>
+                    <div class="dropdownElement"><a class="dropdownLink" href="/user/register">انشاء حساب</a></div>
                 <% } %>
             </div>
             <button class="navUserIcon"><i class="fa-solid fa-user"></i></button>
@@ -60,6 +61,10 @@
         <% } else { %>
             <a href="/user/login" class="sideNavElement mobileSide">تسجيل الدخول</a>
             <a href="/user/register" class="sideNavElement mobileSide">انشاء حساب</a>
+        <% } %>
+
+        <% if(currentUser && currentUser.authorization != 'normal') { %> 
+            <a class="sideNavElement" href="/journey/New">انشاء رحلة جديدة</a>
         <% } %>
 
         <a href="/admin/becoordinator" class="sideNavElement mobileSide">أصبح مضيفا</a>

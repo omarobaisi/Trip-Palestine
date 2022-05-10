@@ -1,3 +1,8 @@
+body {
+    font-family: 'Bigelow Rules', cursive;
+    font-family: 'Slabo 27px', serif;
+}
+
 .container {
-    padding-top: 40px;
+    padding-top: 70px;
 }
