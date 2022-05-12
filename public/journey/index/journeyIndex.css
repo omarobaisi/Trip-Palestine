@@ -1,0 +1,68 @@
+.journeyHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.results {
+    margin: 0 50px;
+}
+
+/*! Journeys Grid */
+
+.journeys {
+    margin: 10px 50px;
+}
+
+.journeyImg {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+@media (min-width: 1001px) {
+    .journeys {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (min-width: 651px) and (max-width: 1000px){
+    .journeys {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+.journeyCard {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: relative;
+    transition: all 300ms ease-in-out;
+}
+
+.journeyCard:hover {
+    transform: scale(1.05, 1.05);
+    color: black;
+}
+
+.journeyInfo {
+    padding: 20px 20px;
+}
+
+.journeyName {
+    font-weight: 600;
+    text-align: center;
+}
+
+.journeyPriceLocation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.fa-location-dot {
+    color: #EE2553;
+}

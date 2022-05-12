@@ -81,17 +81,17 @@ app.use('/admin', adminRoutes);
 
 // No page found
 app.get('*', (req, res) => {
-    throw new ExpressError('Page not found', 404)
+    throw new ExpressError('الصفحة غير متوفرة', 404)
 })
 
 //! Error Handling
 
 const handleValidationError = err => {
-    return new ExpressError(`Validation Failed ... ${err.message}`, 400)
+    return new ExpressError(`خطأ في التحقق`, 400)
 }
 
 const handleCastError = err => {
-    return new ExpressError(`Cast Failed ... ${err.message}`, 400)
+    return new ExpressError(`خطأ في الإرسال`, 400)
 }
 
 app.use((err, req, res, next) => {
@@ -102,7 +102,7 @@ app.use((err, req, res, next) => {
 
 app.use((err, req, res, next) => {
     const { statusCode = 500} = err;
-    if (!err.message) err.message = 'Oh No, Something Went Wrong!'
+    if (!err.message) err.message = 'حدث خطأ غير متوقع'
     res.status(statusCode).render('error', {statusCode, message: err.message})
 })
 

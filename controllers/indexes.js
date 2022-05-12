@@ -29,11 +29,10 @@ module.exports.search = async (req, res) => {
         if(!foundJourney) {
             next(new ExpressError("Sorry, We couldn't find this", 404));
         }
-        req.flash('success', 'Search Success');
         res.render('searchResult', {results: foundJourney});
 
     } else {
-        req.flash('success', 'You need to type something to search');
+        req.flash('success', 'عليك بكتابة شيء للقيام بعملية البحث');
         res.redirect('/')
     }
 }

@@ -19,7 +19,7 @@ module.exports.postRegister = async (req, res, next) => {
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
             if (err) return next(err);
-            req.flash('success', 'Welcome back');
+            req.flash('success', 'تم التسجيل بنجاح');
             res.redirect(`/user/${registeredUser._id}`);
         })
     } catch(e) {
@@ -33,7 +33,7 @@ module.exports.getLogin = (req, res) => {
 }
 
 module.exports.postLogin = (req, res) => {
-    req.flash('success', 'Welcome back');
+    req.flash('success', 'تم تسجيل الدخول بنجاح');
     const redirectUrl = req.session.returnTo || `/user/${req.user._id}`;
     delete req.session.returnTo;
     res.redirect(redirectUrl);
@@ -41,7 +41,7 @@ module.exports.postLogin = (req, res) => {
 
 module.exports.logout = (req, res) => {
     req.logout();
-    req.flash('success', "Successfully signed out");
+    req.flash('success', "تم تسجيل الخروج بنجاح");
     res.redirect('/');
 }
 

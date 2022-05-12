@@ -1,23 +1,31 @@
 <% layout('/layouts/boilerplate') %> 
+<link rel="stylesheet" type="text/css" href="/journey/index/journeyIndex.css">
 
-<!-- Recieved Search result is a array -->
-
-<!-- Check if there is a result -->
 <% if(results.length > 0) { %>
-    <h1>Search Result</h1>
+    <div class="journeyHeader">
+        <h2>نتائج البحث</h2>
+    </div>
 
-    <div class="row">
-        <!-- Loop throw the results array -->
+    <div class="results"><%= results.length %>  نتيجة</div>
+
+    <div class="journeys">
         <% for(let result of results) { %>
-            <div class="col-4">
-                <img src="<%= result.images[0].url %>" alt="" class="img-fluid">
-                <h5 class="mt-2"><%= result.name %> </h5>
-                <a class="btn btn-info mt-3" href="/journey/<%= result._id %>">More</a>
-            </div>
+            <a href="/journey/<%= result._id %>" class="journeyCard">
+                <img class="journeyImg" src="<%= result.images[0].url %>" alt="">
+                <div class="journeyInfo">
+                    <div class="journeyName"><%= result.name %></div>
+                    <div class="journeyPriceLocation">
+                        <div class="location"><i class="fa-solid fa-location-dot"></i> <%= result.routes[0].city %>, <%= result.routes[0].location %></div>
+                        <div class="price"><%= result.price %> شيكل</div>
+                    </div>
+                </div>
+            </a>
         <% } %>
     </div>
 
 <!-- No search result -->
 <% } else { %>
-    <h1>No results</h1>
+    <div class="journeyHeader">
+        <h1>لا يوجد نتائج</h1>
+    </div>
 <% } %> 

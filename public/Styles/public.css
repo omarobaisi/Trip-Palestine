@@ -1,22 +1,32 @@
 body {
     font-family: 'Bigelow Rules', cursive;
     font-family: 'Slabo 27px', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     padding-top: 70px;
+    padding-bottom: 50px;
 }
 
+/*! footer */
+
 footer {
-    margin-top: 50px;
-    height: 150px;
+    margin-top: auto;
+    height: 120px;
     border-top: 2px solid #EE2553;
     background-color: #191919;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: white;
+
+    
 }
+
+/*! flash */
 
 .flash {
     display: flex;
@@ -42,4 +52,14 @@ footer {
     .error, .success {
         margin: 10px 50px;
     }
+}
+
+/*! error */
+
+.errorPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    background-color: #f8d7da;
 }

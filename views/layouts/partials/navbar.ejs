@@ -11,7 +11,7 @@
     <!-- Desktop Search -->
     <div class="nav-search">
         <form action="/search" method="GET" class="navFormLabel">
-            <input dir="rtl" type="text" placeholder="ابحث هنا" class="navFormInput" name="search">
+            <input dir="rtl" type="text" placeholder="مثال: القدس" class="navFormInput" name="search" required oninvalid="this.setCustomValidity('يرجى ملء هذا الحقل اولا')">
             <button type="submit" class="navFormBotton">بحث</button>
         </form>
     </div>
@@ -25,7 +25,7 @@
 
         <form action="/search" method="GET" class="mobileSearchForm">
             <a class="hideMobileForm"><i class="fa-solid fa-x"></i></a>
-            <input dir="rtl" type="text" placeholder="ابحث هنا" class="mobileNavInput" name="search">
+            <input dir="rtl" type="text" placeholder="مثال: القدس" class="mobileNavInput" name="search" required required oninvalid="this.setCustomValidity('يرجى ملء هذا الحقل اولا')">
         </form>
     </div>
     
