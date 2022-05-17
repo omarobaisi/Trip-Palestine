@@ -17,11 +17,11 @@ footer {
     margin-top: auto;
     height: 120px;
     border-top: 2px solid #EE2553;
-    background-color: #191919;
+    background-color: rgb(238, 37, 83, .15);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: white;
+    color: #EE2553;
 
     
 }

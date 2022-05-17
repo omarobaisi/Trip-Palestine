@@ -1,0 +1,273 @@
+@media (min-width: 651px) {
+    .journeyInfo {
+        margin: 0 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mobileInfo {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .info {
+        display: none !important;
+    }
+
+    .mobileInfo {
+        margin-top: 50px;
+        border-top: 2px solid #EE2553;
+    }
+}
+
+.journeyInfo {
+    padding-top: 50px;
+}
+
+/*! Edit & Delete */
+
+.editAndDelete {
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.Delete {
+    font-size: 16px;
+    font-weight: 600;
+    background: red;
+    color: #ffffff;
+    border: 0;
+    padding: 13px 75px;
+    border: 1px solid red;
+}
+
+.Delete:hover {
+    background-color: white;
+    color: red;
+}
+
+.Edit {
+    font-size: 16px;
+    font-weight: 600;
+    background: green;
+    color: #ffffff;
+    border: 0;
+    padding: 12px 75px;
+    border: 1px solid green;
+}
+
+.Edit:hover {
+    background-color: white;
+    color: green;
+}
+
+/*! Carousel */
+
+/* General */
+
+.carousel {
+    position: relative;
+    width: 50%;
+    height: 600px;
+}
+
+@media (max-width: 650px) {
+    .carousel {
+        width: 100%;
+    }
+}
+
+/* Slide Images */
+
+.slides {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+}
+
+.slideImg {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.activeSlide {
+    opacity: 1;
+}
+
+/* Left & Right Arrows */
+
+.carouselButtons {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(238, 37, 83, .15)
+}
+
+.carouselButton {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, .5);
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem;
+}
+
+.Prev {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.fa-arrow-left:hover, .fa-arrow-right:hover {
+    color: #EE2553;
+}
+
+/* Buttom Images */
+
+.buttomImages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 520px;
+}
+
+.buttomImgLi {
+    padding: 3px;
+    height: 80px;
+}
+
+.buttomImg {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.buttomImgLi:hover {
+    padding: 0;
+    border: 3px solid #EE2553;
+}
+
+.activeButtomImg {
+    padding: 0;
+    border: 3px solid #EE2553;
+}
+
+/*! Info */
+
+.info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 650px) {
+    .info {
+        width: 100%;
+    }
+}
+
+.infoHeader {
+    text-align: center;
+}
+
+.date, .author{
+    display: flex;
+}
+
+.dateAnswer, .authorAnswer {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.price {
+    color: #EE2553;
+}
+
+.visitLocations, .register {
+    display: flex;
+    justify-content: center;
+}
+
+.infoHeader {
+    padding: 10px 0;
+}
+
+.location, .author {
+    padding: 3px 0;
+}
+
+.fa-location-dot {
+    color: #EE2553;
+}
+
+.registerButton {
+    font-size: 16px;
+    font-weight: 600;
+    background: #EE2553;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
+    margin: 56px auto 25px;
+    padding: 13px 75px;
+    transition: 300ms ease-in-out;
+    margin-bottom: 50px;
+}
+
+.registerButton:hover {
+    background-color: white;
+    color: #EE2553;
+}
+
+.mobileRegisterButton {
+    font-size: 16px;
+    font-weight: 600;
+    background: #EE2553;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
+    margin: 56px auto 25px;
+    padding: 20px 45%;
+    transition: 300ms ease-in-out;
+    margin-bottom: 50px;
+}
+
+.mobileRegisterButton:hover {
+    background-color: white;
+    color: #EE2553;
+}
+
+.discription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    background-color: rgb(238, 37, 83, .15);
+    padding: 30px;
+}
+
+.discription h1 {
+    color: #EE2553;
+}

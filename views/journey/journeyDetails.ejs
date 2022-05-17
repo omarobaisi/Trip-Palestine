@@ -1,23 +1,111 @@
 <% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/journey/details/journeyDetails.css">
 
-<!-- Journey details page -->
-<!-- Recieved the journey info -->
+<div class="editAndDelete">
+    <% if(currentUser && journey.user.equals(currentUser._id)) { %>
+        <form action="/journey/<%= journey._id %>?_method=DELETE" method="POST" class="deleteForm">
+            <button class="Delete">Delete</button>
+        </form>
 
-<h1><%= journey.name %></h1>
-<div class="row">
-    <% for(let image of journey.images) { %> 
-    <div class="col-4">
-        <img src="<%= image.url %>" alt="" class="img-fluid mt-4">
+        <a href="/journey/<%= journey._id %>/edit" class="Edit">Edit</a>
+    <% } %> 
+</div>
+
+<section class="journeyInfo">
+
+    <div class="info">
+        <div class="infoHeader"><h1><%= journey.name %></h1></div>
+        <div class="">
+            <div class="date">
+                <div class="dateTitle">تاريخ الرحلة</div>
+                <div class="dateAnswer"><div><%= journey.date %></div></div>
+            </div>
+            <div class="author">
+                <div>منشئ الرحلة</div>
+                <div class="authorAnswer"><a href="/user/<%= journey.user.id %> "><%= journey.user.name %></a></div>
+            </div>
+        </div>
+
+        <h1 class="price">₪<%= journey.price %></h1>
+
+        <div class="">
+            <div class="visitLocations"><h3>مواقع الزيارة</h3></div>
+            <div class="">
+                <% for(let route of journey.routes) { %> 
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> <%= route.city %>, <%= route.location %> </div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="register">
+            <a href="/journey/<%= journey._id %>/register" class="registerButton">التسجيل</a>
+        </div>
     </div>
-    <% } %>
-</div>
 
-<div class="">
-    <span><%= journey.date %></span>
-</div>
+    <div class="carousel">
 
-<div class="mt-4">
-    <span><%= journey.description %></span>
+        <% if(journey.images.length > 1) { %> 
+            <div class="carouselButtons">
+                <button class="carouselButton Prev"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="carouselButton Next"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        <% } %> 
+        
+        
+        <ul class="slides">
+            <% for(let i=0; i<journey.images.length; i++) { %> 
+                <li class="slide" id="slide-<%= i+1 %>">
+                    <img class="slideImg" src="<%= journey.images[i].url %>" alt="">
+                </li>
+            <% } %>
+        </ul>
+
+        <% if(journey.images.length > 1) { %> 
+            <ul class="buttomImages">
+                <% for(let i=0; i<journey.images.length; i++) { %> 
+                    <li class="buttomImgLi" id="buttomImg-<%= i+1 %>">
+                        <img class="buttomImg" src="<%= journey.images[i].url %>" alt="">
+                    </li>
+                <% } %>
+            </ul>
+        <% } %> 
+    </div>
+
+    <div class="mobileInfo">
+        <div class="infoHeader"><h1><%= journey.name %></h1></div>
+        <div class="">
+            <div class="date">
+                <div class="dateTitle">تاريخ الرحلة</div>
+                <div class="dateAnswer"><div><%= journey.date %></div></div>
+            </div>
+            <div class="author">
+                <div>منشئ الرحلة</div>
+                <div class="authorAnswer"><a href="/user/<%= journey.user.id %> "><%= journey.user.name %></a></div>
+            </div>
+        </div>
+
+        <h1 class="price">₪<%= journey.price %></h1>
+
+        <div class="">
+            <div class="visitLocations"><h3>مواقع الزيارة</h3></div>
+            <div class="">
+                <% for(let route of journey.routes) { %> 
+                    <div class=""><i class="fa-solid fa-location-dot"></i> <%= route.city %>, <%= route.location %> </div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="register">
+            <a href="/journey/<%= journey._id %>/register" class="mobileRegisterButton">التسجيل</a>
+        </div>
+        
+    </div>
+
+</section>
+
+<div class="discription">
+    <h1>وصف الرحلة</h1>
+    <div>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.</div>
 </div>
 
 <div class="my-5">
@@ -33,5 +121,4 @@
     <% } %>
 </div>
 
-<!-- Send a get request to "/journey/journey._id/register" to regsiter for the journey -->
-<a class="btn btn-success" href="/journey/<%= journey._id %>/register ">Register</a>
+<script type="text/javascript" src="/journey/details/journeyDetails.js"></script>
