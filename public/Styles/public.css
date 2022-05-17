@@ -16,14 +16,12 @@ body {
 footer {
     margin-top: auto;
     height: 120px;
-    border-top: 2px solid #EE2553;
-    background-color: rgb(238, 37, 83, .15);
+    background-color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: #EE2553;
-
-    
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
 /*! flash */

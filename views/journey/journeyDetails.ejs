@@ -11,102 +11,107 @@
     <% } %> 
 </div>
 
-<section class="journeyInfo">
+<section class="journeyDetails">
 
-    <div class="info">
-        <div class="infoHeader"><h1><%= journey.name %></h1></div>
-        <div class="">
-            <div class="date">
-                <div class="dateTitle">تاريخ الرحلة</div>
-                <div class="dateAnswer"><div><%= journey.date %></div></div>
-            </div>
-            <div class="author">
-                <div>منشئ الرحلة</div>
-                <div class="authorAnswer"><a href="/user/<%= journey.user.id %> "><%= journey.user.name %></a></div>
-            </div>
-        </div>
+    <div class="journeyInfo">
 
-        <h1 class="price">₪<%= journey.price %></h1>
-
-        <div class="">
-            <div class="visitLocations"><h3>مواقع الزيارة</h3></div>
+        <div class="info">
+            <div class="infoHeader"><h1><%= journey.name %></h1></div>
             <div class="">
-                <% for(let route of journey.routes) { %> 
-                    <div class="location"><i class="fa-solid fa-location-dot"></i> <%= route.city %>, <%= route.location %> </div>
-                <% } %>
+                <div class="date">
+                    <div class="dateTitle">تاريخ الرحلة</div>
+                    <div class="dateAnswer"><div><%= journey.date %></div></div>
+                </div>
+                <div class="author">
+                    <div>منشئ الرحلة</div>
+                    <div class="authorAnswer"><a href="/user/<%= journey.user.id %> "><%= journey.user.name %></a></div>
+                </div>
+            </div>
+
+            <h1 class="price">₪<%= journey.price %></h1>
+
+            <div class="">
+                <div class="visitLocations"><h3>مواقع الزيارة</h3></div>
+                <div class="">
+                    <% for(let route of journey.routes) { %> 
+                        <div class="location"><i class="fa-solid fa-location-dot"></i> <%= route.city %>, <%= route.location %> </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="register">
+                <a href="/journey/<%= journey._id %>/register" class="registerButton">التسجيل</a>
             </div>
         </div>
 
-        <div class="register">
-            <a href="/journey/<%= journey._id %>/register" class="registerButton">التسجيل</a>
-        </div>
-    </div>
+        <div class="carousel">
 
-    <div class="carousel">
-
-        <% if(journey.images.length > 1) { %> 
-            <div class="carouselButtons">
-                <button class="carouselButton Prev"><i class="fa-solid fa-arrow-left"></i></button>
-                <button class="carouselButton Next"><i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        <% } %> 
-        
-        
-        <ul class="slides">
-            <% for(let i=0; i<journey.images.length; i++) { %> 
-                <li class="slide" id="slide-<%= i+1 %>">
-                    <img class="slideImg" src="<%= journey.images[i].url %>" alt="">
-                </li>
-            <% } %>
-        </ul>
-
-        <% if(journey.images.length > 1) { %> 
-            <ul class="buttomImages">
+            <% if(journey.images.length > 1) { %> 
+                <div class="carouselButtons">
+                    <button class="carouselButton Prev"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="carouselButton Next"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            <% } %> 
+            
+            
+            <ul class="slides">
                 <% for(let i=0; i<journey.images.length; i++) { %> 
-                    <li class="buttomImgLi" id="buttomImg-<%= i+1 %>">
-                        <img class="buttomImg" src="<%= journey.images[i].url %>" alt="">
+                    <li class="slide" id="slide-<%= i+1 %>">
+                        <img class="slideImg" src="<%= journey.images[i].url %>" alt="">
                     </li>
                 <% } %>
             </ul>
-        <% } %> 
+
+            <% if(journey.images.length > 1) { %> 
+                <ul class="buttomImages">
+                    <% for(let i=0; i<journey.images.length; i++) { %> 
+                        <li class="buttomImgLi" id="buttomImg-<%= i+1 %>">
+                            <img class="buttomImg" src="<%= journey.images[i].url %>" alt="">
+                        </li>
+                    <% } %>
+                </ul>
+            <% } %> 
+        </div>
+
+        <div class="mobileInfo">
+            <div class="infoHeader"><h1><%= journey.name %></h1></div>
+            <div class="">
+                <div class="date">
+                    <div class="dateTitle">تاريخ الرحلة</div>
+                    <div class="dateAnswer"><div><%= journey.date %></div></div>
+                </div>
+                <div class="author">
+                    <div>منشئ الرحلة</div>
+                    <div class="authorAnswer"><a href="/user/<%= journey.user.id %> "><%= journey.user.name %></a></div>
+                </div>
+            </div>
+
+            <h1 class="price">₪<%= journey.price %></h1>
+
+            <div class="">
+                <div class="visitLocations"><h3>مواقع الزيارة</h3></div>
+                <div class="">
+                    <% for(let route of journey.routes) { %> 
+                        <div class=""><i class="fa-solid fa-location-dot"></i> <%= route.city %>, <%= route.location %> </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="register">
+                <a href="/journey/<%= journey._id %>/register" class="mobileRegisterButton">التسجيل</a>
+            </div>
+            
+        </div>
     </div>
 
-    <div class="mobileInfo">
-        <div class="infoHeader"><h1><%= journey.name %></h1></div>
-        <div class="">
-            <div class="date">
-                <div class="dateTitle">تاريخ الرحلة</div>
-                <div class="dateAnswer"><div><%= journey.date %></div></div>
-            </div>
-            <div class="author">
-                <div>منشئ الرحلة</div>
-                <div class="authorAnswer"><a href="/user/<%= journey.user.id %> "><%= journey.user.name %></a></div>
-            </div>
-        </div>
-
-        <h1 class="price">₪<%= journey.price %></h1>
-
-        <div class="">
-            <div class="visitLocations"><h3>مواقع الزيارة</h3></div>
-            <div class="">
-                <% for(let route of journey.routes) { %> 
-                    <div class=""><i class="fa-solid fa-location-dot"></i> <%= route.city %>, <%= route.location %> </div>
-                <% } %>
-            </div>
-        </div>
-
-        <div class="register">
-            <a href="/journey/<%= journey._id %>/register" class="mobileRegisterButton">التسجيل</a>
-        </div>
-        
+    <div class="discription">
+        <h1>وصف الرحلة</h1>
+        <div>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.</div>
     </div>
 
 </section>
 
-<div class="discription">
-    <h1>وصف الرحلة</h1>
-    <div>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.</div>
-</div>
+
 
 <div class="my-5">
     <!-- Only authorized people can delete and edit the journey -->

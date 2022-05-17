@@ -6,15 +6,19 @@
        <h1 class="form-header">تسجيل الدخول</h1>
 
        <label for="" class="form-label">
-          <input type="text" placeholder="" class="form-input" name="email" autofocus>
+          <input type="email" placeholder="" class="form-input" name="email" autofocus required oninvalid="this.setCustomValidity('هذه ليست الصيغة الصحيحة للبريد الالكتروني')">
           <p class="form-placeholder">البريد الالكتروني</p>
        </label>
        <label for="" class="form-label">
-          <input type="text" placeholder="" class="form-input" id="password" name="password">
+          <input type="text" placeholder="" class="form-input" id="password" name="password" required>
           <p class="form-placeholder">كلمة السر</p>
+          <a class="forget" href="/user/forgot">نسيت كلمة السر؟</a>
        </label>
 
-       <button type="submit" class="form-botton">تسجيل الدخول</button>
+       <div class="sumbitAndRegister">
+         <button type="submit" class="form-botton">تسجيل الدخول</button>
+         <a class="register" href="/user/register">انشاء حساب</a>
+      </div>
     </form>
  </section>
 

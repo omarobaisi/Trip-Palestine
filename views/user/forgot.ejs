@@ -1,11 +1,19 @@
-<% layout('/layouts/boilerplate') %> 
+<% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/loginForm/loginForm.css">
 
-<!-- Password reset request page -->
+<section class="form-section">
+    <form action="/user/forgot" method="post" class="form-container">
+       <h1 class="form-header">اعادة تعيين كلمة السر</h1>
 
-<h1>Reset</h1>
+       <label for="" class="form-label">
+          <input type="email" placeholder="" class="form-input" name="email" autofocus required oninvalid="this.setCustomValidity('هذه ليست الصيغة الصحيحة للبريد الالكتروني')">
+          <p class="form-placeholder">البريد الالكتروني</p>
+       </label>
 
-<!-- Send a post request with the name of email to "/user/forgot" -->
-<form action="/user/forgot" method="post">
-    <input type="text" placeholder="Email" name="email">
-    <button>Submit</button>
-</form>
+       <div class="sumbitAndRegister">
+         <button type="submit" class="form-botton">اعادة تعيين</button>
+      </div>
+    </form>
+ </section>
+
+ <script type="text/javascript" src="/loginForm/loginForm.js"></script>
