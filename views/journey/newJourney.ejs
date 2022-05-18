@@ -1,66 +1,48 @@
 <% layout('/layouts/boilerplate') %> 
+<link rel="stylesheet" type="text/css" href="/journey/new/newJourney.css">
 
-<!-- Create a new journey page -->
-<!-- Send a post request that is a "multipart/form-data" with a body to "/journey" -->
 
-<!-- 
-    json body: {
-        journey: {
-            name: input,
-            price: input,
-            description: input,
-            date: input,
-        },
-        image: [inputs],
-        routes: [ 
-            {   
-                city: input,
-                location: input,
-            }
-        ]
-    }
- -->
-
-<h1>New Journey</h1>
-
-<form action="/journey" method="post" enctype="multipart/form-data">
-    <div>
-        <input type="text" name="journey[name]" placeholder="name">
-    </div>
-    <div>
-        <input type="number" name="journey[price]" placeholder="price">
-    </div>
-    <!-- Array images location -->
-    <div class="">
-        <input type="file" name="image" id="" multiple>
-    </div>
-    <div>
-        <input type="text" name="journey[description]" placeholder="description">
-    </div>
-    <div>
-        <input type="text" name="journey[date]" placeholder="date">
-    </div>
-
-    <!-- How many routes to add (work with the javascript in public/JS/newRoutes) -->
-    <div class="">
-        number of routes: 
-        <select id="routesNumber">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-    <!-- Routes -->
-    <% for(var i=0; i<5; i++) { %> 
-        <div class="">
-            <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
-            <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" placeholder="location-<%= i+1 %>">
+<form class="newJourneyForm" action="/journey" method="post" enctype="multipart/form-data">
+    <div class="newRight">
+        <div class="newHeader">
+            <h1>رحلة جديدة</h1>
         </div>
-    <% } %> 
+        <div class="newName">
+            <input type="text" name="journey[name]" placeholder="name" autofocus>
+        </div>
+        <div class="newPrice">
+            <input type="number" name="journey[price]" placeholder="price">
+        </div>
+        <div class="newImages">
+            <input type="file" name="image" id="" multiple>
+        </div>
+        <div class="newdescription">
+            <textarea name="journey[description]" id="" cols="50" rows="4" placeholder="description"></textarea>
+        </div>
+    </div>
+    
+    <div class="newLeft">
+        <div class="">
+            number of routes: 
+            <select id="routesNumber">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <!-- Routes -->
+        <% for(var i=0; i<5; i++) { %> 
+            <div class="">
+                <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
+                <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" placeholder="location-<%= i+1 %>">
+            </div>
+        <% } %> 
 
-    <button>Submit</button>
+        <button>Submit</button>
+    </div>
+    
 </form>
 
 <script type="text/javascript" src="/JS/newRoutes.js"></script>

@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/journey/details/journeyDetails.css">
 
 <div class="editAndDelete">
-    <% if(currentUser && journey.user.equals(currentUser._id)) { %>
+    <% if(currentUser && journey.user.equals(currentUser._id) || currentUser && currentUser.authorization === 'admin') { %>
         <form action="/journey/<%= journey._id %>?_method=DELETE" method="POST" class="deleteForm">
             <button class="Delete">Delete</button>
         </form>
@@ -110,20 +110,5 @@
     </div>
 
 </section>
-
-
-
-<div class="my-5">
-    <!-- Only authorized people can delete and edit the journey -->
-    <% if(currentUser && journey.user.equals(currentUser._id)) { %> 
-        <!-- Send a post request to "/journey/journey._id?_method=DELETE" to delete it -->
-        <form action="/journey/<%= journey._id %>?_method=DELETE" method="POST" style="display: inline;">
-            <button class="btn btn-danger">Delete</button>
-        </form>
-
-        <!-- Send a get request to "/journey/journey._id/edit" to edit it -->
-        <a class="btn btn-warning" href="/journey/<%= journey._id %>/edit">Edit</a>
-    <% } %>
-</div>
 
 <script type="text/javascript" src="/journey/details/journeyDetails.js"></script>

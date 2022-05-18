@@ -30,7 +30,7 @@
 <% } %>
 
 <!-- If the current logged in user is a admin and the profile is for a coordinator you can remove his coordinator rank -->
-<% if(currentUser.authorization === 'admin' && user.authorization === 'coordinator') { %> 
+<% if(currentUser && currentUser.authorization === 'admin' && user.authorization === 'coordinator') { %> 
     <!-- Send a post request to "/admin/removecoordinator" with a body of { id: user._id } -->
     <form action="/admin/removecoordinator" method="post">
         <input type="hidden" name="id" value="<%= user._id %>">

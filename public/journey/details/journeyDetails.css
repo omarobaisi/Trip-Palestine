@@ -1,8 +1,14 @@
+.journeyDetails {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    border-radius: 5px;
+    margin: 50px 30px;
+}
+
 @media (min-width: 651px) {
     .journeyInfo {
-        margin: 0 50px;
         display: flex;
         justify-content: space-between;
+        padding: 40px;
     }
 
     .mobileInfo {
@@ -16,26 +22,21 @@
     }
 
     .mobileInfo {
-        margin-top: 50px;
+        margin: 0 50px;
         border-top: 2px solid #EE2553;
     }
-}
 
-.journeyInfo {
-    padding: 20px;
-}
-
-.journeyDetails {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-    margin: 50px;
-    border-radius: 5px;
+    .journeyDetails {
+        margin: 0 30px;
+        padding: 20px;
+    }
 }
 
 /*! Edit & Delete */
 
 .editAndDelete {
+    margin-top: 30px;
     width: 100%;
-    padding-top: 50px;
     display: flex;
     justify-content: center;
 }
@@ -121,7 +122,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(238, 37, 83, .15)
+    background-color: rgb(238, 37, 83, .15);
+    z-index: 1;
 }
 
 .carouselButton {
