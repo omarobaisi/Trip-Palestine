@@ -1,12 +1,185 @@
 .newJourneyForm {
     display: flex;
     box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
+    margin: 50px;
+    margin-bottom: 50px;
 }
+
+/*! Right Side */
 
 .newRight {
     background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
 }
 
-.newLeft {
+.newHeader {
+    margin-bottom: 30px;
+}
+
+.newName {
+    width: 60%;
+}
+
+.newPrice {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.form-input {
+    background-color: #f1f7fe;
+    outline: none;
+    height: 15px;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 10px 0;
+    background-color: white;
+    font-size: 20px;
+    transition: border-color 200ms ease;
+}
+
+.form-placeholder {
+    position: absolute;
+    font-size: 20px;
+    padding: 0 7px;
+    margin-right: 5px;
+    background-color: white;
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+
+.namePlaceholder {
+    margin-top: 7px;
+}
+
+.priceFormInput {
+    border-left: 0;
+}
+  
+.form-placeholder:focus {
+    border-color: #EE2553;
+}
+
+.shekelSign {
+    border: 1px solid #EE2553;
+    padding: 7.7px 10px;
     background-color: #EE2553;
+    color: #ffffff;;
+}
+
+.newDescriptionDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.newDescription {
+    width: 80%;
+    box-sizing: padding-box;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 8px rgba(black, .3);
+}
+
+.newDescription:focus {
+    outline: none;
+}
+
+/*! Left Side */
+
+.newLeft {
+    width: 50%;
+    background-color: #EE2553;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.routesInputs {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.routesInput {
+    display: flex;
+    margin: 10px 0;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    flex: 1;
+}
+
+.routeText {
+    margin-right: 8px;
+}
+
+.city {
+    flex: 3;
+    margin-left: 10px;
+}
+
+.location {
+    flex: 3;
+}
+
+.routeInput {
+    background-color: #f1f7fe;
+    outline: none;
+    height: 15px;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 10px 0;
+    background-color: white;
+    font-size: 20px;
+    transition: border-color 200ms ease;
+}
+
+.newButton {
+    font-size: 16px;
+    font-weight: 600;
+    background: #ffffff;
+    color: #EE2553;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    padding: 13px 75px;
+    transition: 300ms ease-in-out;
+}
+
+.newButton:hover {
+    background-color: #EE2553;
+    color: #ffffff;
+}
+
+/*!  */
+
+@media (max-width: 1000px) {
+    .newJourneyForm {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .newRight, .newLeft {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    
 }

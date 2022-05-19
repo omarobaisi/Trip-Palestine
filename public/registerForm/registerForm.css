@@ -80,21 +80,21 @@
   }
   
   /*  */
-  
+
   .form-botton {
     font-size: 20px;
-    background-color: white;
-    color: gray;
-    border: 2px solid gray;
-    border-radius: 5px;
+    font-weight: 600;
+    background: #EE2553;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
     padding: 15px 55px;
     transition: 300ms ease-in-out;
-    margin-top: 10px;
   }
   
   .form-botton:hover {
     color: #EE2553;
-    border: 2px solid #EE2553;
+    background-color: white;
   }
   
   /*  */

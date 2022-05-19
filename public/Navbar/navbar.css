@@ -62,7 +62,7 @@ a:hover {
 .navFormInput {
     outline: none;
     background-color: #fdfcfa;
-    height: 40px;
+    height: 35px;
     width: 100%;
     border-right: 1px solid gray;
     border-top: 1px solid gray;
@@ -82,7 +82,7 @@ a:hover {
     font-size: 20px;
     background-color: white;
     color: gray;
-    height: 44px;
+    height: 39px;
     border: white;
     border: 1px solid gray;
     transition: 300ms ease-in-out;
