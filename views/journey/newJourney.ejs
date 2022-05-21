@@ -15,6 +15,9 @@
             <input class="form-input priceFormInput" type="number" name="journey[price]" min="0" max="10000">
             <div class="shekelSign"><i class="fa-solid fa-shekel-sign"></i></div>
         </div>
+        <div class="newDate">
+            <input class="form-input dateFormInput" type="date" name="journey[date]">
+        </div>
         <div class="newImages">
             <input type="file" name="image" id="" multiple>
         </div>
@@ -26,7 +29,7 @@
     
     <div class="newLeft">
         <div class="">
-            <span>عدد الوجهات</span>
+            number of routes: 
             <select id="routesNumber">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -36,53 +39,17 @@
             </select>
         </div>
         <!-- Routes -->
-        <div class="routesInputs">
-            <% for(var i=0; i<5; i++) { %> 
-                <div class="routesInput">
-                    <div id="<%= i %>" class="icon">
-                        <div class="routeText">الوجهة <%= i+1 %></div>
-                    </div>
-                    <div id="<%= i %>" class="city">
-                        <input type="text" name="routes[<%= i %>][city]" class="routeInput" placeholder="المدينة">
-                    </div>
-                    <div id="<%= i %>" class="location">
-                        <select name="routes[<%= i %>][location]">
-                            <option value="القدس">القدس</option>
-                            <option value="عكا">عكا</option>
-                            <option value="نابلس">نابلس</option>
-                            <option value="بيسان">بيسان</option>
-                            <option value="صفد">صفد</option>
-                            <option value="طبريا">طبريا</option>
-                            <option value="الناصرة">الناصرة</option>
-                            <option value="حيفا">حيفا</option>
-                            <option value="نابلس">نابلس</option>
-                            <option value="جنين">جنين</option>
-                            <option value="طولكرم">طولكرم</option>
-                            <option value="الخليل">الخليل</option>
-                            <option value="رام الله والبيرة">رام الله والبيرة</option>
-                            <option value="يافا">يافا</option>
-                            <option value="الرملة">الرملة</option>
-                            <option value="بئر السبع">بئر السبع</option>
-                            <option value="بيت لحم">بيت لحم</option>
-                            <option value="قلقيلية">قلقيلية</option>
-                            <option value="الرملة">الرملة</option>
-                            <option value="إسدود">إسدود</option>
-                            <option value="عسقلان">عسقلان</option>
-                            <option value="اللد">اللد</option>
-                            <option value="طوباس">طوباس</option>
-                            <option value="سلفيت">سلفيت</option>
-                            <option value="غزة">غزة</option>
-                            <option value="خان يونس">خان يونس</option>
-                            <option value="رفح">رفح</option>
-                            <option value="شمال غزة">شمال غزة</option>
-                            <option value="دير البلح">دير البلح</option>
-                        </select>
-                    </div>
-                </div>
-            <% } %> 
+        <% for(var i=0; i<5; i++) { %> 
+            <div class="">
+                <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
+                <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" placeholder="location-<%= i+1 %>">
+            </div>
+        <% } %> 
+        
+        <div class="newButtonDiv">
+           <button class="newButton">انشاء الرحلة</button> 
         </div>
         
-        <button class="newButton">انشاء الرحلة</button>
     </div>
 </form>
 
