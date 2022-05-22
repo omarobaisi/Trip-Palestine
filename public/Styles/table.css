@@ -1,0 +1,34 @@
+table, th, td {
+    border: 1px solid;
+  }
+
+.table {
+    width: 100%;
+}
+
+.mobileTable, .xsMobileTable {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .table {
+        display: none;
+    }
+    .mobileTable {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media (max-width: 310px) {
+    .table, .mobileTable {
+        display: none;
+    }
+    .xsMobileTable {
+        width: 100%;
+        display: block;
+    }
+    .approveHeader {
+        font-size: 20px;
+    }
+}

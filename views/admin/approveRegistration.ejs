@@ -1,39 +1,93 @@
 <% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/Styles/table.css">
 
-<!-- Approve a registration page (people who chooses direct payment and they payed us) -->
-<!-- Recieved an array of all the registration requests -->
+<div>
+    <div>
+        <h1 class="approveHeader">الموافقة على طلبات التسجيل</h1>
+    </div>
+    
+    <table class="table">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th id="">name</th>
+                <th id="">email</th>
+                <th id="">phone</th>
+                <th id="">city</th>
+                <th id="">price</th>
+                <th id="">Approval</th>
+                <th id="">Approve</th>
+            </tr>
+        </thead>
+        <% registration.forEach((reg) => { %>
+            <!-- Show all unapproved requests -->
+            <% if(reg.approved == false) { %> 
+                <tbody>
+                    <tr>
+                        <!-- You can view the user profile (get request to "/user/reg.user") -->
+                        <th id=""><a href="/user/<%= reg.user %>"><%= reg.name %></a></th>
+                        <th id=""><%= reg.email %></th>
+                        <th id=""><%= reg.phone %></th>
+                        <th id=""><%= reg.city %></th>
+                        <th id=""><%= reg.price %></th>
+                        <th id=""><%= reg.approved %></th>
+                        <!-- Send a get request to "/admin/reg._id/approveregistration" to approve him -->
+                        <th id=""><a href="/admin/<%= reg._id %>/approveregistration">Approve</a></th>
+                    </tr>
+                </tbody>
+            <% } %> 
+        <% }); %> 
+    </table>
 
-<h1>approveRegistration</h1>
+    <table class="mobileTable">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th id="">name</th>
+                <th id="">email</th>
+                <th id="">phone</th>
+                <th id="">Approve</th>
+            </tr>
+        </thead>
+        <% registration.forEach((reg) => { %>
+            <!-- Show all unapproved requests -->
+            <% if(reg.approved == false) { %> 
+                <tbody>
+                    <tr>
+                        <!-- You can view the user profile (get request to "/user/reg.user") -->
+                        <th id=""><a href="/user/<%= reg.user %>"><%= reg.name %></a></th>
+                        <th id=""><%= reg.email %></th>
+                        <th id=""><%= reg.phone %></th>
+                        <!-- Send a get request to "/admin/reg._id/approveregistration" to approve him -->
+                        <th id=""><a href="/admin/<%= reg._id %>/approveregistration">Approve</a></th>
+                    </tr>
+                </tbody>
+            <% } %> 
+        <% }); %> 
+    </table>
 
-<table>
-    <caption></caption>
-    <thead>
-        <tr>
-            <th id="">name</th>
-            <th id="">email</th>
-            <th id="">phone</th>
-            <th id="">city</th>
-            <th id="">price</th>
-            <th id="">Approval</th>
-            <th id="">Approve</th>
-        </tr>
-    </thead>
-    <% registration.forEach((reg) => { %>
-        <!-- Show all unapproved requests -->
-        <% if(reg.approved == false) { %> 
-            <tbody>
-                <tr>
-                    <!-- You can view the user profile (get request to "/user/reg.user") -->
-                    <th id=""><a href="/user/<%= reg.user %>"><%= reg.name %></a></th>
-                    <th id=""><%= reg.email %></th>
-                    <th id=""><%= reg.phone %></th>
-                    <th id=""><%= reg.city %></th>
-                    <th id=""><%= reg.price %></th>
-                    <th id=""><%= reg.approved %></th>
-                    <!-- Send a get request to "/admin/reg._id/approveregistration" to approve him -->
-                    <th id=""><a href="/admin/<%= reg._id %>/approveregistration">Approve</a></th>
-                </tr>
-            </tbody>
-        <% } %> 
-    <% }); %> 
-</table>
+    <table class="xsMobileTable">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th id="">name</th>
+                <th id="">phone</th>
+                <th id="">Approve</th>
+            </tr>
+        </thead>
+        <% registration.forEach((reg) => { %>
+            <!-- Show all unapproved requests -->
+            <% if(reg.approved == false) { %> 
+                <tbody>
+                    <tr>
+                        <!-- You can view the user profile (get request to "/user/reg.user") -->
+                        <th id=""><a href="/user/<%= reg.user %>"><%= reg.name %></a></th>
+                        <th id=""><%= reg.phone %></th>
+                        <!-- Send a get request to "/admin/reg._id/approveregistration" to approve him -->
+                        <th id=""><a href="/admin/<%= reg._id %>/approveregistration">Approve</a></th>
+                    </tr>
+                </tbody>
+            <% } %> 
+        <% }); %> 
+    </table>
+</div>

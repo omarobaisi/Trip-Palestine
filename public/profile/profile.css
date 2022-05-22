@@ -1,0 +1,55 @@
+.profileHeaderText {
+    display: flex;
+    justify-content: center;
+
+}
+
+.approveLink {
+    color: #EE2553;
+}
+
+/*! Host review */
+
+.hoseReviewDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reviews {
+    margin: 0 30px;
+}
+
+.reviewHeader {
+    border-bottom: 1px solid black;
+}
+
+.reviewEnd {
+    width: 30%;
+    border-bottom: 1px solid black;
+}
+
+/*! Derank */
+
+.Derank {
+    display: flex;
+    justify-content: center;
+}
+
+.derankButton {
+    font-size: 16px;
+    font-weight: 600;
+    background: #EE2553;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
+    margin: 56px auto 25px;
+    padding: 13px 75px;
+    transition: 300ms ease-in-out;
+    margin-bottom: 30px;
+}
+
+.derankButton:hover {
+    background-color: white;
+    color: #EE2553;
+}

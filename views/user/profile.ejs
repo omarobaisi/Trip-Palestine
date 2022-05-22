@@ -1,39 +1,48 @@
 <% layout('/layouts/boilerplate') %>
-<!-- Used a star css styling found in public/Styles/star.css -->
 <link rel="stylesheet" href="/Styles/stars.css"> 
+<link rel="stylesheet" href="/profile/profile.css"> 
 
-<!-- User profile page -->
-<!-- Recieved the user info -->
-<!-- Recieved an array of all the Reviews -->
+<!--! Your normal or host -->
+<% if(currentUser && currentUser.authorization == 'normal' || currentUser && currentUser.authorization == 'coordinator') { %> 
+    <section class="profileSection">
+        <div class="profileHeaderText"><h1>اهلا وسهلا بك <%= user.name %> في صفحتك الشخصية</h1></div>
+    </section>
 
-<h1><%= user.name %> Profile page</h1>
+<!--! Your an admin -->
+<% } else if(currentUser && currentUser.authorization == 'admin') { %> 
+    <section class="profileSection">
+        <div class="profileHeaderText"><h1>صفحة الادمن</h1></div>
+        <a class="approveLinks" href="/admin/approveregistration"><h1>الموافقة على طلبات التسجيل بالرحل</h1></a>
+        <a class="approveLinks" href="/admin/approvecoordinator"><h1>الموافقة على المستضيفين</h1></a>
+    </section>
 
-<!-- if the profile is for a coordinator you can review him-->
+<!--! Visited Someone page -->
+<% } else { %> 
+    <div class="profileHeaderText"><h1>صفحة <%= user.name %> الشخصية </h1></div>
+<% } %> 
+
+<!--! Visited a host page -->
 <% if(user.authorization === 'coordinator') { %> 
-    <!-- send a get request to "/user/user._id/review/add" (Review page) -->
-    <a class="btn btn-success" href="/user/<%= user._id %>/review/add">Review</a>
+    <div class="hoseReviewDiv">
+        <a class="derankButton" href="/user/<%= user._id %>/review/add">قيم المستضيف</a>
 
-    <!-- Show all reviews -->
-    <h3>Reviews</h3>
-    <% user.reviews.forEach((review) => { %>
-        <div class="pt-2 pb-1" style="border-top: 1px solid black;">
-            <h4><%= review.user.name %></h4>
-            <p class="starability-result" data-rating="<%= review.rate %>"></p>
-            <h5 class="my-3"><%= review.body %></h5>
+        <div class="reviews">
+            <h3 class="reviewHeader">تقييمات المستضيف</h3>
+            <% user.reviews.forEach((review) => { %>
+                <div class="review">
+                    <h3><%= review.user.name %></h3>
+                    <p class="starability-result" data-rating="<%= review.rate %>"></p>
+                    <h5 class="my-3"><%= review.body %></h5>
+                </div>
+            <% }); %>
         </div>
-    <% }); %>
-<% } %>
- 
-<!-- If the current logged in user is a admin send a get request to "/admin/approveregistration" -->
-<% if(user.authorization === 'admin') { %> 
-    <a class="btn btn-success" href="/admin/approveregistration">Approve registration</a>
+    </div>
 <% } %>
 
-<!-- If the current logged in user is a admin and the profile is for a coordinator you can remove his coordinator rank -->
+<!--! An admin visited a host page -->
 <% if(currentUser && currentUser.authorization === 'admin' && user.authorization === 'coordinator') { %> 
-    <!-- Send a post request to "/admin/removecoordinator" with a body of { id: user._id } -->
-    <form action="/admin/removecoordinator" method="post">
+    <form action="/admin/removecoordinator" method="post" class="Derank">
         <input type="hidden" name="id" value="<%= user._id %>">
-        <button>تخفيض الرتبة</button>
+        <button class="derankButton">تخفيض الرتبة</button>
     </form>
 <% } %>

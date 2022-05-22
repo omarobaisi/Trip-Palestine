@@ -18,10 +18,45 @@ footer {
     height: 120px;
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     color: #EE2553;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.footerRight {
+    margin-right: 50px;
+}
+
+.footerName {
+    margin: 0;
+}
+
+.footerEst {
+    color: black;
+}
+
+.footerLeft {
+    margin-left: 50px;
+}
+
+.footerAbout {
+    color: #EE2553;
+}
+
+.footerAbout:hover {
+    color: black;
+}
+
+@media (max-width: 650px) {
+    .footerRight {
+        margin-right: 20px;
+    }
+
+    .footerLeft {
+        margin-left: 20px;
+    }
+    
 }
 
 /*! flash */

@@ -1,35 +1,80 @@
 <% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/Styles/table.css">
 
-<!-- Approve a coordinator page (people who chooses direct payment and they payed us) -->
-<!-- Recieved an array of all the coordinator requests -->
-
-<h1>approve Coordinator</h1>
-
-<table>
-    <caption></caption>
-    <thead>
-        <tr>
-            <th id="">name</th>
-            <th id="">email</th>
-            <th id="">phone</th>
-            <th id="">city</th>
-            <th id="">Approve</th>
-            <th id="">Denie</th>
-        </tr>
-    </thead>
-    <% Request.forEach((req) => { %>
-        <tbody>
+<div>
+    <div>
+        <h1 class="approveHeader">الموافقة على مستضيفين جدد</h1>
+    </div>
+    
+    <table class="table">
+        <caption></caption>
+        <thead>
             <tr>
-                <!-- You can view the user profile (get request to "/user/reg.user") -->
-                <th id=""><a href="/user/<%= req.user %> "><%= req.name %></a></th>
-                <th id=""><%= req.email %></th>
-                <th id=""><%= req.phone %></th>
-                <th id=""><%= req.city %></th>
-                <!-- Send a get request to "/admin/reg._id/approvecoordinator" to approve him -->
-                <th id=""><a href="/admin/<%= req._id %>/approvecoordinator">Approve</a></th>
-                <!-- Send a get request to "/admin/reg._id/deniecoordinator" to denie him -->
-                <th id=""><a href="/admin/<%= req._id %>/deniecoordinator">Denie</a></th>
+                <th id="">name</th>
+                <th id="">email</th>
+                <th id="">phone</th>
+                <th id="">city</th>
+                <th id="">Approve</th>
+                <th id="">Denie</th>
             </tr>
-        </tbody>
-    <% }); %> 
-</table>
+        </thead>
+        <% Request.forEach((req) => { %>
+            <tbody>
+                <tr>
+                    <th id=""><a href="/user/<%= req.user %> "><%= req.name %></a></th>
+                    <th id=""><%= req.email %></th>
+                    <th id=""><%= req.phone %></th>
+                    <th id=""><%= req.city %></th>
+                    <th id=""><a href="/admin/<%= req._id %>/approvecoordinator">Approve</a></th>
+                    <th id=""><a href="/admin/<%= req._id %>/deniecoordinator">Denie</a></th>
+                </tr>
+            </tbody>
+        <% }); %> 
+    </table>
+
+    <table class="mobileTable">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th id="">name</th>
+                <th id="">email</th>
+                <th id="">phone</th>
+                <th id="">Approve</th>
+                <th id="">Denie</th>
+            </tr>
+        </thead>
+        <% Request.forEach((req) => { %>
+            <tbody>
+                <tr>
+                    <th id=""><a href="/user/<%= req.user %> "><%= req.name %></a></th>
+                    <th id=""><%= req.email %></th>
+                    <th id=""><%= req.phone %></th>
+                    <th id=""><a href="/admin/<%= req._id %>/approvecoordinator">Approve</a></th>
+                    <th id=""><a href="/admin/<%= req._id %>/deniecoordinator">Denie</a></th>
+                </tr>
+            </tbody>
+        <% }); %> 
+    </table>
+
+    <table class="xsMobileTable">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th id="">name</th>
+                <th id="">phone</th>
+                <th id="">Approve</th>
+                <th id="">Denie</th>
+            </tr>
+        </thead>
+        <% Request.forEach((req) => { %>
+            <tbody>
+                <tr>
+                    <th id=""><a href="/user/<%= req.user %> "><%= req.name %></a></th>
+                    <th id=""><%= req.phone %></th>
+                    <th id=""><a href="/admin/<%= req._id %>/approvecoordinator">Approve</a></th>
+                    <th id=""><a href="/admin/<%= req._id %>/deniecoordinator">Denie</a></th>
+                </tr>
+            </tbody>
+        <% }); %> 
+    </table>
+</div>

@@ -1,6 +1,2 @@
-profile
 review
-
-approveCoordinator
-approveRegistration
 makeCoordinatorRequest
