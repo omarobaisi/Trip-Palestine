@@ -1,4 +1,4 @@
-.newJourneyForm {
+.editJourneyForm {
     display: flex;
     box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
     margin: 50px;
@@ -27,13 +27,13 @@
     transition: 200ms ease-in-out;
 }
 
-.form-placeholder:focus {
+.form-input:focus {
     border-color: #EE2553;
 }
 
 /*! Right Side */
 
-.newRight {
+.editRight {
     background-color: white;
     width: 50%;
     display: flex;
@@ -44,13 +44,13 @@
 
 /* Header */
 
-.newHeader {
+.editHeader {
     margin-bottom: 30px;
 }
 
 /* Name */
 
-.newName {
+.editName {
     width: 60%;
 }
 
@@ -60,7 +60,7 @@
 
 /* Price */
 
-.newPrice {
+.editPrice {
     width: 30%;
     display: flex;
     align-items: center;
@@ -78,37 +78,9 @@
     color: #ffffff;;
 }
 
-/* Image */
-
-.newImages {
-    padding: 30px 0;
-}
-
-.imageButton {
-    position: absolute;
-    transform: translateY(-3px);
-    font-size: 17px;
-    font-weight: 600;
-    background: #EE2553;
-    color: #ffffff;
-    border-radius: 6px;
-    border: 1px solid #EE2553;
-    padding: 5px 35px;
-    transition: 200ms ease-in-out;
-}
-
-.imageButton:hover {
-    color: #EE2553;
-    background-color: white;
-}
-
-#fileupload {
-    margin-bottom: 10px;
-}
-
 /* Description */
 
-.newDescriptionDiv {
+.editDescriptionDiv {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -116,23 +88,22 @@
     margin-top: 30px;
 }
 
-.newDescription {
+.editDescription {
     width: 80%;
     box-sizing: padding-box;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 10px;
     font-size: 14px;
     border-radius: 6px;
     box-shadow: 2px 2px 8px rgba(black, .3);
 }
 
-.newDescription:focus {
-    outline: none;
+.editDescription:focus {
 }
 
 /*! Left Side */
 
-.newLeft {
+.editLeft {
     width: 50%;
     background-color: #EE2553;
     flex-grow: 1;
@@ -160,7 +131,7 @@
     margin-right: 10px;
 }
 
-/* Route onput */
+/* Route Input */
 
 .routeInput {
     display: flex;
@@ -193,14 +164,14 @@
 
 /* Button */
 
-.newButtonDiv {
+.editButtonDiv {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.newButton {
+.editButton {
     font-size: 16px;
     font-weight: 600;
     background: #ffffff;
@@ -211,7 +182,7 @@
     transition: 300ms ease-in-out;
 }
 
-.newButton:hover {
+.editButton:hover {
     background-color: #EE2553;
     color: #ffffff;
 }
@@ -219,22 +190,22 @@
 /*! Media */
 
 @media (max-width: 1000px) {
-    .newJourneyForm {
+    .editJourneyForm {
         display: flex;
         flex-direction: column;
     }
 
-    .newRight, .newLeft {
+    .editRight, .editLeft {
         width: 93%;
     }
 
-    .newPrice {
+    .editPrice {
         width: 40%;
     } 
 }
 
 @media (max-width: 450px) {
-    .newLeft, .newRight {
+    .editLeft, .editRight {
         padding: 30px 15px;
     }
 
@@ -242,17 +213,16 @@
         display: none !important;
     }
 
-    .newButton {
+    .editButton {
         padding: 10px 30px;
     }
 }
 
 @media (max-width: 370px) {
-    .newPrice {
+    .editPrice {
         width: 60%;
     }
 }
-
 
 /*! DropDown */
 
@@ -294,3 +264,69 @@
   .Dropdown::-webkit-scrollbar-thumb:hover {
     background: #EE2553; 
   }
+
+/*! Images */
+
+/* New images */
+
+.newImages {
+    padding: 30px 0;
+}
+
+.imageButton {
+    position: absolute;
+    transform: translateY(-3px);
+    font-size: 17px;
+    font-weight: 600;
+    background: #EE2553;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
+    padding: 5px 35px;
+    transition: 200ms ease-in-out;
+}
+
+.imageButton:hover {
+    color: #EE2553;
+    background-color: white;
+}
+
+#fileupload {
+    margin-bottom: 10px;
+}
+
+/* Old images */
+
+.oldImages {
+    display: flex;
+}
+
+.oldImageDiv {
+    position: relative;
+    width: 30%;
+    margin: 20px;
+}
+
+.oldImageTrash {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #EE2553;
+    font-size: 50px;
+}
+
+.oldimage {
+    width: 100%;
+    object-fit: cover;
+    transition: 200ms ease-in-out;
+}
+
+.deleteImage {
+    opacity: 40%;
+}
+
+.oldImageCheck {
+    visibility: hidden;
+}
