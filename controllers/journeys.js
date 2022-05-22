@@ -86,6 +86,7 @@ module.exports.getRegister = async (req, res) => {
 }
 
 module.exports.postRegister = async (req, res) => {
+    console.log(req.body)
     const newRegister = new JourneyRegister(req.body.info);
 
     // no payment

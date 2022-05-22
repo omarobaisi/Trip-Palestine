@@ -40,7 +40,7 @@ module.exports.getApproveCoordinator = async (req, res, next) => {
     if(!foundRequest) {
         next(new ExpressError("Sorry, We couldn't find the data that your looking for", 404));
     }
-    res.render('admin/approvecoordinator', {Request: foundRequest});
+    res.render('admin/approveCoordinator', {Request: foundRequest});
 }
 
 //! Accept a coordinator

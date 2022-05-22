@@ -1,0 +1,130 @@
+/*!  */
+
+.form-container {
+  height: 600px !important;
+}
+
+#loggedInformContainer {
+  height: 300px !important;
+}
+
+.payment {
+    display: none;
+    
+}
+
+.direct {
+    margin-top: 70px;
+}
+
+.directCheckbox {
+    display: none;
+}
+
+.directTButton {
+    font-size: 20px;
+    font-weight: 600;
+    background: #ffffff;
+    color: #EE2553;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
+    padding: 10px 30px;
+    transition: 300ms ease-in-out;
+}
+
+.directClicked {
+    background-color: #EE2553;
+    color: white;
+}
+
+.fa-check {
+    visibility: hidden;
+    transition: 300ms ease-in-out;
+}
+
+.checkActivated {
+    visibility: visible;
+    color: green;
+}
+
+.paypal {
+    width: 50%;
+    margin: 50px 0;
+    border: 2px solid #062980;
+    border-radius: 5px;
+}
+
+/*! SignIn */
+
+.haveAccount {
+  background: none;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+  color: black;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.createAcount {
+  margin: 0 !important;
+}
+
+.haveAccount:hover {
+  color: #EE2553;
+}
+
+.signInSection {
+  color: black;
+  display: none;
+}
+
+/*! DropDown */
+
+.Dropdown {
+    height: 37px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='16' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+    margin-left: 2rem;
+    padding-right: 5px;
+    background-color: white;
+    font-size: 20px;
+    height: 47px;
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 5px;
+  }
+
+  .Dropdown option {
+    margin-right: 5px;
+  }
+  
+  /* width */
+  .Dropdown::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .Dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .Dropdown::-webkit-scrollbar-thumb {
+    background-color: rgb(238, 37, 83, .7);
+  }
+  
+  /* Handle on hover */
+  .Dropdown::-webkit-scrollbar-thumb:hover {
+    background: #EE2553; 
+  }
+
+  .selectPlaceholder {
+    position: relative;
+    font-size: 15px;
+    margin: 0;
+    padding-right: 8px;
+  }

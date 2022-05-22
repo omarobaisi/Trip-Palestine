@@ -1,10 +1,185 @@
 <% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/registerForm/registerForm.css">
+<link rel="stylesheet" type="text/css" href="/journey/register/journeyRegister.css">
 
-<!-- Journey registration page -->
-<!-- Recieved the journey info -->
+<% if(currentUser) { %>
 
-<h1><%= journey.name %> اتمام عملية التسجيل لرحلة</h1>
-<h1><%= journey.price %> :المجموع</h1>
+    <form action="/journey/<%= journey._id %>" method="post">
+        <div class="">
+            <input type="text" placeholder="المدينة" name="info[city]" required>
+            <!-- Hidden inputs that include the user name, email, phone and _id -->
+            <input type="hidden" value="<%= currentUser.name %>" name="info[name]">
+            <input type="hidden" value="<%= currentUser.email %>" name="info[email]">
+            <input type="hidden" value="<%= currentUser.phone %>" name="info[phone]">
+            <input type="hidden" value="<%= currentUser._id %>" name="info[user]">
+            <!-- Hidden inputs that include the journey price and _id -->
+            <input type="hidden" name="info[price]" value="<%= journey.price %>">
+            <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+            <!-- Show payment options (javascript) -->
+            <button type="button">انتقل الى عملية الدفع</button>
+        </div>
+
+        <!--TODO: Use javascript to show this after pressing the below button -->
+        <div class="hiddenPayment">
+
+            <!-- Pay to us -->
+            <input type="checkbox" id="noPayment">
+            <label for="noPayment">الدفع المباشر</label>
+
+            <!-- Paypal (need to work on) -->
+            <a href="https://www.paypal.com/">Paypal</a>
+
+            <button>تسجيل</button>
+        </div>
+
+    </form>
+
+    <section class="formRegister">
+        <form action="/journey/<%= journey._id %>" method="post">
+            <div class="info form-container" id="loggedInformContainer">
+                <h1 class="form-header">اتمام عملية التسجيل بدون حساب</h1>
+                <h3 class="form-price">المجموع: <%= journey.price %>₪</h3>
+                <label for="" class="form-label">
+                    <p class="selectPlaceholder">المدينة</p>
+                    <select id="" class="Dropdown" name="info[city]" required>
+                        <option value="القدس">القدس</option>
+                        <option value="عكا">عكا</option>
+                        <option value="نابلس">نابلس</option>
+                        <option value="بيسان">بيسان</option>
+                        <option value="صفد">صفد</option>
+                        <option value="طبريا">طبريا</option>
+                        <option value="الناصرة">الناصرة</option>
+                        <option value="حيفا">حيفا</option>
+                        <option value="نابلس">نابلس</option>
+                        <option value="جنين">جنين</option>
+                        <option value="طولكرم">طولكرم</option>
+                        <option value="الخليل">الخليل</option>
+                        <option value="رام الله والبيرة">رام الله والبيرة</option>
+                        <option value="يافا">يافا</option>
+                        <option value="الرملة">الرملة</option>
+                        <option value="بئر السبع">بئر السبع</option>
+                        <option value="بيت لحم">بيت لحم</option>
+                        <option value="قلقيلية">قلقيلية</option>
+                        <option value="الرملة">الرملة</option>
+                        <option value="إسدود">إسدود</option>
+                        <option value="عسقلان">عسقلان</option>
+                        <option value="اللد">اللد</option>
+                        <option value="طوباس">طوباس</option>
+                        <option value="سلفيت">سلفيت</option>
+                        <option value="غزة">غزة</option>
+                        <option value="خان يونس">خان يونس</option>
+                        <option value="رفح">رفح</option>
+                        <option value="شمال غزة">شمال غزة</option>
+                        <option value="دير البلح">دير البلح</option>
+                    </select>
+                </label>
+                <!-- Hidden inputs that include the user name, email, phone and _id -->
+                <input type="hidden" value="<%= currentUser.name %>" name="info[name]">
+                <input type="hidden" value="<%= currentUser.email %>" name="info[email]">
+                <input type="hidden" value="<%= currentUser.phone %>" name="info[phone]">
+                <input type="hidden" value="<%= currentUser._id %>" name="info[user]">
+                <!-- Hidden inputs that include the journey price and _id -->
+                <input type="hidden" name="info[price]" value="<%= journey.price %>">
+                <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+                <!-- Show payment options (javascript) -->
+
+                <button type="button" class="form-botton moveToSubmit">انتقل الى عملية الدفع</button>
+            </div>
+
+            <div class="payment form-container">
+                <h1 class="form-header">اتمام عملية الدفع والتسجيل</h1>
+                <div class="direct">
+                    <input type="checkbox" id="noPayment" class="directCheckbox">
+                    <button type="button" for="noPayment" class="directTButton">الدفع المباشر</button>
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="paypal">
+                    <a href="https://www.paypal.com/"><img style="width: 100%;" src="https://i0.wp.com/www.ecommerce-nation.com/wp-content/uploads/2018/01/paypal.png?fit=1000%2C600&amp;ssl=1" alt=""></a>
+                </div>
+                <button type="submit" class="form-botton">تسجيل</button>
+            </div>
+        </form>
+    </section>
+
+<% } else { %>
+    <section class="formRegister">
+        <form action="/journey/<%= journey._id %>" method="post">
+            <div class="info form-container">
+                <h1 class="form-header">اتمام عملية التسجيل بدون حساب</h1>
+                <h3 class="form-price">المجموع: <%= journey.price %>₪</h3>
+                <label for="" class="form-label">
+                    <input type="text" placeholder="" class="form-input" name="info[name]" required>
+                    <p class="form-placeholder">الاسم</p>
+                </label>
+                <label for="" class="form-label">
+                    <input type="text" placeholder="" class="form-input" name="info[email]">
+                    <p class="form-placeholder">البريد الاكتروني (اختياري)</p>
+                </label>
+                <label for="" class="form-label">
+                    <input type="text" placeholder="" class="form-input" name="info[phone]" required>
+                    <p class="form-placeholder">رقم الهاتف</p>
+                </label>
+                <label for="" class="form-label">
+                    <p class="selectPlaceholder">المدينة</p>
+                    <select id="" class="Dropdown" name="info[city]" required>
+                        <option value="القدس">القدس</option>
+                        <option value="عكا">عكا</option>
+                        <option value="نابلس">نابلس</option>
+                        <option value="بيسان">بيسان</option>
+                        <option value="صفد">صفد</option>
+                        <option value="طبريا">طبريا</option>
+                        <option value="الناصرة">الناصرة</option>
+                        <option value="حيفا">حيفا</option>
+                        <option value="نابلس">نابلس</option>
+                        <option value="جنين">جنين</option>
+                        <option value="طولكرم">طولكرم</option>
+                        <option value="الخليل">الخليل</option>
+                        <option value="رام الله والبيرة">رام الله والبيرة</option>
+                        <option value="يافا">يافا</option>
+                        <option value="الرملة">الرملة</option>
+                        <option value="بئر السبع">بئر السبع</option>
+                        <option value="بيت لحم">بيت لحم</option>
+                        <option value="قلقيلية">قلقيلية</option>
+                        <option value="الرملة">الرملة</option>
+                        <option value="إسدود">إسدود</option>
+                        <option value="عسقلان">عسقلان</option>
+                        <option value="اللد">اللد</option>
+                        <option value="طوباس">طوباس</option>
+                        <option value="سلفيت">سلفيت</option>
+                        <option value="غزة">غزة</option>
+                        <option value="خان يونس">خان يونس</option>
+                        <option value="رفح">رفح</option>
+                        <option value="شمال غزة">شمال غزة</option>
+                        <option value="دير البلح">دير البلح</option>
+                    </select>
+                </label>
+                <!-- Hidden inputs that include the journey._id and journey.price -->
+                <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+                <input type="hidden" name="info[price]" value="<%= journey.price %>">
+
+                <button type="button" class="form-botton moveToSubmit">انتقل الى عملية الدفع</button>
+                <a href="/user/login" class="haveAccount">لديك حساب؟ تسجيل الدخول</a>
+                <a href="/user/register" class="haveAccount createAccount">انشاء حساب</a>
+            </div>
+
+            <div class="payment form-container">
+                <h1 class="form-header">اتمام عملية الدفع والتسجيل</h1>
+                <div class="direct">
+                    <input type="checkbox" id="noPayment" class="directCheckbox">
+                    <button type="button" for="noPayment" class="directTButton">الدفع المباشر</button>
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="paypal">
+                    <a href="https://www.paypal.com/"><img style="width: 100%;" src="https://i0.wp.com/www.ecommerce-nation.com/wp-content/uploads/2018/01/paypal.png?fit=1000%2C600&amp;ssl=1" alt=""></a>
+                </div>
+                <button type="submit" class="form-botton">تسجيل</button>
+            </div>
+        </form>
+    </section>
+<% } %>
+
+<script type="text/javascript" src="/journey/register/journeyRegister.js"></script>
+<script type="text/javascript" src="/registerForm/registerForm.js"></script>
 
 <!-- if your logged in -->
 <% if(currentUser) { %>
@@ -31,6 +206,35 @@
             ]
         }
     -->
+    <form action="/journey/<%= journey._id %>" method="post">
+        <div class="">
+            <input type="text" placeholder="المدينة" name="info[city]" required>
+            <!-- Hidden inputs that include the user name, email, phone and _id -->
+            <input type="hidden" value="<%= currentUser.name %>" name="info[name]">
+            <input type="hidden" value="<%= currentUser.email %>" name="info[email]">
+            <input type="hidden" value="<%= currentUser.phone %>" name="info[phone]">
+            <input type="hidden" value="<%= currentUser._id %>" name="info[user]">
+            <!-- Hidden inputs that include the journey price and _id -->
+            <input type="hidden" name="info[price]" value="<%= journey.price %>">
+            <input type="hidden" name="info[journey]" value="<%= journey._id %>">
+            <!-- Show payment options (javascript) -->
+            <button type="button">انتقل الى عملية الدفع</button>
+        </div>
+
+        <!--TODO: Use javascript to show this after pressing the below button -->
+        <div class="hiddenPayment">
+
+            <!-- Pay to us -->
+            <input type="checkbox" id="noPayment">
+            <label for="noPayment">الدفع المباشر</label>
+
+            <!-- Paypal (need to work on) -->
+            <a href="https://www.paypal.com/">Paypal</a>
+
+            <button>تسجيل</button>
+        </div>
+
+    </form>
 
     <form action="/journey/<%= journey._id %>" method="post">
         <div class="">
@@ -64,60 +268,5 @@
 
 <!-- if your not logged in -->
 <% } else { %>
-
-    <!-- Send a post request with a body to "/user/login" to login -->
-
-    <!-- 
-        json body: {
-            email: input,
-            password: input
-        }
-    -->
-
-    <h1>إتمام التسجيل دون حساب</h1>
-    <form action="/journey/<%= journey._id %>" method="post">
-        <div class="">
-            <input type="text" placeholder="الاسم" name="info[name]" required>
-            <input type="text" placeholder="(اختياري)البريد الاكتروني" name="info[email]">
-            <input type="text" placeholder="رقم الهاتف" name="info[phone]" required>
-            <input type="text" placeholder="المدينة" name="info[city]" required>
-            <!-- Hidden inputs that include the journey._id -->
-            <input type="hidden" name="info[journey]" value="<%= journey._id %>">
-            <button type="button">انتقل الى عملية الدفع</button>
-        </div>
-
-        <!--TODO: Use javascript to show this after pressing the below button -->
-        <div class="hiddenPayment">
-
-            <!-- Pay to us -->
-            <input type="checkbox" id="noPayment">
-            <label for="noPayment">الدفع المباشر</label>
-
-            <!-- Paypal (need to work on) -->
-            <a href="https://www.paypal.com/">Paypal</a>
-            
-            <button>تسجيل</button>
-        </div>
-
-    </form>
-
-    <h1 class="mt-5">لديك حساب بالفعل؟</h1>
-    <!-- Send a get request to "/journey/journey._id/edit" to create a new account -->
-    <a href="/user/register">انشاء حساب</a>
-
-    <!-- Send a post request with a body to "/user/login" to login -->
-
-    <!-- 
-        json body: {
-            email: input,
-            password: input
-        }
-    -->
-
-    <form action="/user/login" method="post">
-        <input type="text" placeholder="البريد الاكتروني" name="email">
-        <input type="text" placeholder="كلمة المرور" name="password">
-        <button>تسجيل الدخول</button>
-    </form>
 
 <% } %>

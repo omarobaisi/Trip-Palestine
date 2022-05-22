@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/Navbar/navbar.css">
 
-<nav id="navbar">
+<nav id="navbar" aria-label="navbar">
 
     <div class="nav-right">
         <a class="openNav"><i class="fa-solid fa-bars"></i></a>
@@ -35,7 +35,11 @@
         <!-- User -->
         <div class="navUser">
 
-            <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
+            <% if(currentUser && currentUser.authorization == 'normal' || !currentUser) { %> 
+                <a href="/admin/becoordinator" class="host">أصبح مضيفا</a>
+            <% } else { %>
+                <a href="/admin/becoordinator" class="host" style="visibility: hidden;">أصبح مضيفا</a>
+            <% } %> 
             
             <div class="navUserDropdown">
                 <% if(currentUser) { %>
@@ -53,7 +57,7 @@
 </nav>
 
 <!--! SideNav -->
-<nav class="sideNav">
+<nav class="sideNav" aria-label="sideNav">
     <div class="innerSideNav">
         <!-- Mobile -->
         <% if(currentUser) { %>
@@ -63,16 +67,19 @@
             <a href="/user/register" class="sideNavElement mobileSide">انشاء حساب</a>
         <% } %>
 
+        <% if(currentUser && currentUser.authorization == 'admin') { %> 
+            <a class="sideNavElement" href="/admin/approveregistration">الموافقة على طلبات التسجيل بالرحل</a>
+            <a class="sideNavElement" href="/admin/approvecoordinator">الموافقة على المستضيفين</a>
+        <% } %>
+
         <% if(currentUser && currentUser.authorization != 'normal') { %> 
             <a class="sideNavElement" href="/journey/New">انشاء رحلة جديدة</a>
         <% } %>
 
         <a href="/admin/becoordinator" class="sideNavElement mobileSide">أصبح مضيفا</a>
         <!-- Both -->
-        <a class="sideNavElement">صفحة 1</a>
-        <a class="sideNavElement">صفحة 2</a>
-        <a class="sideNavElement">صفحة 3</a>
-        <a class="sideNavElement">صفحة 4</a>
+        <a href="/journey/" class="sideNavElement">تصفح الرحل</a>
+        <a href="https://www.tripadvisor.com/Tourism-g660378-Palestinian_Territories-Vacations.html" class="sideNavElement">TripAdviser</a>
         <!-- Mobile -->
         <% if(currentUser) { %>
             <a href="/user/logout" class="sideNavElement mobileSide">تسجيل الخروج</a>
