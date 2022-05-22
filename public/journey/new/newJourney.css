@@ -5,32 +5,6 @@
     margin-bottom: 50px;
 }
 
-/*! Right Side */
-
-.newRight {
-    background-color: white;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 50px 30px;
-}
-
-.newHeader {
-    margin-bottom: 30px;
-}
-
-.newName {
-    width: 60%;
-}
-
-.newPrice {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-}
-
 .form-input {
     background-color: #f1f7fe;
     outline: none;
@@ -53,8 +27,40 @@
     transition: 200ms ease-in-out;
 }
 
+/*! Right Side */
+
+.newRight {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 30px;
+}
+
+/* Header */
+
+.newHeader {
+    margin-bottom: 30px;
+}
+
+/* Name */
+
+.newName {
+    width: 60%;
+}
+
 .namePlaceholder {
     margin-top: 7px;
+}
+
+/* Price */
+
+.newPrice {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .priceFormInput {
@@ -71,6 +77,30 @@
     background-color: #EE2553;
     color: #ffffff;;
 }
+
+/* Image */
+
+.newImages {
+    padding: 30px 0;
+}
+
+.imageButton {
+    position: absolute;
+    transform: translateY(-3px);
+    font-size: 17px;
+    font-weight: 600;
+    background: #EE2553;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #EE2553;
+    padding: 5px 35px;
+}
+
+#fileupload {
+    margin-bottom: 10px;
+}
+
+/* Description */
 
 .newDescriptionDiv {
     width: 100%;
@@ -107,65 +137,61 @@
     padding: 50px 30px;
 }
 
+/* Number of routes */
+
 .routesNumber {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-.routesInputs {
-    display: flex;
-    flex-direction: column;
-    margin: 30px 0;
-}
-
-.routesInput {
-    display: flex;
-    margin: 10px 0;
-}
-
-.custom-select {
-    margin: 0 10px;
-}
-
-.icon {
-    display: flex;
-    align-items: center;
+.routesNumberTest {
     color: white;
 }
 
-.routeText {
-    margin-right: 8px;
+#routesSelect {
+    width: 35px;
+    margin-right: 10px;
 }
+
+/* Route onput */
+
+.routeInput {
+    display: flex;
+    width: 100%;
+}
+
+/* Route name */
+
+.routeName {
+    width: 20%;
+    margin-top: 10px;
+    color: white;
+}
+
+/* City */
 
 .city {
-    flex: 3;
-    margin: 0 10px;
+    width: 40%;
 }
 
+/* Location */
+
 .location {
-    flex: 3;
+    width: 40%;
 }
 
 .location input {
     padding-right: 5px;
 }
 
-.routeInput {
-    background-color: #f1f7fe;
-    outline: none;
-    height: 15px;
-    width: 100%;
-    border: 1px solid gray;
-    padding: 10px 0;
-    background-color: white;
-    font-size: 20px;
-    transition: border-color 200ms ease;
-}
+/* Button */
 
 .newButtonDiv {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .newButton {
@@ -201,26 +227,30 @@
     } 
 }
 
-@media (max-width: 650px) {
-    .deskIcon {
+@media (max-width: 450px) {
+    .newLeft, .newRight {
+        padding: 30px 15px;
+    }
+
+    .routeName {
         display: none !important;
     }
-    .mobileIconText {
-        display: flex;
-        justify-content: center;
+
+    .newButton {
+        padding: 10px 30px;
     }
 }
 
-@media (min-width: 651px) {
-    .mobileIcon, .mobileIconText  {
-        display: none !important;
+@media (max-width: 370px) {
+    .newPrice {
+        width: 60%;
     }
 }
+
 
 /*! DropDown */
 
 .Dropdown {
-    width: 100%;
     height: 37px;
     -webkit-appearance: none;
     -moz-appearance: none;

@@ -8,18 +8,25 @@
         </div>
         <div class="newName">
             <div class="form-placeholder namePlaceholder">اسم الرحلة</div>
-            <input class="form-input nameFormInput" type="text" name="journey[name]">
+            <input class="form-input nameFormInput" type="text" name="journey[name]" required oninvalid="this.setCustomValidity('عليك تعبئة هذا الحقل')">
         </div>
         <div class="newPrice">
             <div class="form-placeholder pricePlaceholder">السعر</div>
-            <input class="form-input priceFormInput" type="number" name="journey[price]" min="0" max="10000">
+            <input class="form-input priceFormInput" type="number" name="journey[price]" min="0" max="10000" required oninvalid="this.setCustomValidity('عليك تعبئة هذا الحقل')">
             <div class="shekelSign"><i class="fa-solid fa-shekel-sign"></i></div>
         </div>
         <div class="newDate">
-            <input class="form-input dateFormInput" type="date" name="journey[date]">
+            <input class="form-input dateFormInput" type="date" name="journey[date]" required oninvalid="this.setCustomValidity('عليك تعبئة هذا الحقل')">
         </div>
         <div class="newImages">
-            <input type="file" name="image" id="" multiple>
+            <button class="imageButton" type="button">اختر الصور من هنا</button>
+            <input id="fileupload" type="file" multiple="multiple" name="image" data-buttonText="Your label here."/>
+            <hr />
+            <b>الصور المختارة</b>
+            <br />
+            <br />
+            <div id="dvPreview">
+            </div>
         </div>
         <div class="newDescriptionDiv">
             <h3>وصف الرحلة</h3>
@@ -28,9 +35,9 @@
     </div>
     
     <div class="newLeft">
-        <div class="">
-            number of routes: 
-            <select id="routesNumber">
+        <div class="routesNumber">
+            <div class="routesNumberTest">عدد الوجهات:</div>
+            <select class="Dropdown" id="routesSelect">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -40,9 +47,40 @@
         </div>
         <!-- Routes -->
         <% for(var i=0; i<5; i++) { %> 
-            <div class="">
-                <input type="text" name="routes[<%= i %>][city]" id="<%= i %>" class="city" placeholder="city-<%= i+1 %>">
-                <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location" placeholder="location-<%= i+1 %>">
+            <div class="routeInput">
+                <div class="routeName hideAndShow" id="<%= i %>"><div> الوجهة <%= i+1 %></div></div>
+                <select class="city hideAndShow Dropdown" name="routes[<%= i %>][city]" id="<%= i %>">
+                    <option value="القدس">القدس</option>
+                    <option value="عكا">عكا</option>
+                    <option value="نابلس">نابلس</option>
+                    <option value="بيسان">بيسان</option>
+                    <option value="صفد">صفد</option>
+                    <option value="طبريا">طبريا</option>
+                    <option value="الناصرة">الناصرة</option>
+                    <option value="حيفا">حيفا</option>
+                    <option value="نابلس">نابلس</option>
+                    <option value="جنين">جنين</option>
+                    <option value="طولكرم">طولكرم</option>
+                    <option value="الخليل">الخليل</option>
+                    <option value="رام الله والبيرة">رام الله والبيرة</option>
+                    <option value="يافا">يافا</option>
+                    <option value="الرملة">الرملة</option>
+                    <option value="بئر السبع">بئر السبع</option>
+                    <option value="بيت لحم">بيت لحم</option>
+                    <option value="قلقيلية">قلقيلية</option>
+                    <option value="الرملة">الرملة</option>
+                    <option value="إسدود">إسدود</option>
+                    <option value="عسقلان">عسقلان</option>
+                    <option value="اللد">اللد</option>
+                    <option value="طوباس">طوباس</option>
+                    <option value="سلفيت">سلفيت</option>
+                    <option value="غزة">غزة</option>
+                    <option value="خان يونس">خان يونس</option>
+                    <option value="رفح">رفح</option>
+                    <option value="شمال غزة">شمال غزة</option>
+                    <option value="دير البلح">دير البلح</option>
+                </select>
+                <input type="text" name="routes[<%= i %>][location]" id="<%= i %>" class="location hideAndShow" placeholder="الموقع">
             </div>
         <% } %> 
         
@@ -53,4 +91,4 @@
     </div>
 </form>
 
-<script type="text/javascript" src="/JS/newRoutes.js"></script>
+<script type="text/javascript" src="/journey/new/newJourney.js"></script>

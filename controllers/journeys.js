@@ -25,7 +25,6 @@ module.exports.postCreate = async (req, res, next) => {
     // Make a new array with the image path and name (multer will give you req.files for image data)
     newJourney.images = req.files.map(f => ({ url: f.path, filename: f.filename}))
     await newJourney.save();
-    console.log(newJourney);
     req.flash('success', 'Created a new journey');
     res.redirect(`/journey/${newJourney._id}`);
 }
