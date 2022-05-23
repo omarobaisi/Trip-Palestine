@@ -4,7 +4,7 @@ const ExpressError = require("../utils/ExpressError");
 module.exports.home = async (req, res, next) => {
     const journeys = await Journey.find({})
     if(!journeys) {
-        next(new ExpressError('No journeys found', 404));
+        next(new ExpressError('نأسف, لم نجد أي رحل', 404));
     }
 
     // Index of the last 12 journeys of they exist
@@ -27,7 +27,7 @@ module.exports.search = async (req, res) => {
             $or:[ { "routes.city": regex }, {name: regex} ] 
         })
         if(!foundJourney) {
-            next(new ExpressError("Sorry, We couldn't find this", 404));
+            next(new ExpressError("نأسف, لم نستطع ايجاد ما تبحث عنه", 404));
         }
         res.render('searchResult', {results: foundJourney});
 

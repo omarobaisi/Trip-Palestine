@@ -7,7 +7,7 @@ const User = require('../models/user');
 module.exports.getApproveRegistration = async (req, res, next) => {
     const foundRegister = await JourneyRegister.find();
     if(!foundRegister) {
-        next(new ExpressError("Sorry, We couldn't find the data that your looking for", 404));
+        next(new ExpressError("نأسف, لم نستطع ايجاد ما تبحث عنه", 404));
     }
     res.render('admin/approveRegistration', {registration: foundRegister});
 }
@@ -16,7 +16,7 @@ module.exports.getApproveRegistration = async (req, res, next) => {
 module.exports.approveRegistration = async (req, res) => {
     const { id } = req.params;
     await JourneyRegister.findByIdAndUpdate(id, { approved: true }, { runValidators: true, new: true });
-    req.flash('success', 'Successfully Approved');
+    req.flash('success', 'تمت الموافقة بنجاح :)');
     res.redirect('/admin/approveregistration');
 }
 
@@ -38,7 +38,7 @@ module.exports.coordinatorRequest = async (req, res) => {
 module.exports.getApproveCoordinator = async (req, res, next) => {
     const foundRequest = await CoordinatorRequest.find();
     if(!foundRequest) {
-        next(new ExpressError("Sorry, We couldn't find the data that your looking for", 404));
+        next(new ExpressError("نأسف, لم نستطع ايجاد ما تبحث عنه", 404));
     }
     res.render('admin/approveCoordinator', {Request: foundRequest});
 }
@@ -50,7 +50,7 @@ module.exports.approveCoordinator = async (req, res) => {
     foundRequest.user.authorization = 'coordinator';
     await foundRequest.user.save();
     await CoordinatorRequest.findByIdAndDelete( id );
-    req.flash('success', 'Successfully Approved :)');
+    req.flash('success', 'تمت الموافقة بنجاح :)');
     res.redirect('/admin/approvecoordinator');
 }
 
@@ -58,7 +58,7 @@ module.exports.approveCoordinator = async (req, res) => {
 module.exports.denieRegistration = async (req, res) => {
     const { id } = req.params;
     await CoordinatorRequest.findByIdAndDelete( id );
-    req.flash('success', 'Successfully Denied :(');
+    req.flash('success', 'تم الرفض :(');
     res.redirect('/admin/approvecoordinator');
 }
 
@@ -68,6 +68,6 @@ module.exports.removeCoordinator = async (req, res, next) => {
     const foundUser = await User.findById(id);
     foundUser.authorization = 'normal';
     await foundUser.save();
-    req.flash('success', 'Successfully demotioned');
+    req.flash('success', 'تمت تخفيض الرتبة بنجاح');
     res.redirect(`/user/${id}`);
 }

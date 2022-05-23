@@ -1,5 +1,36 @@
 <% layout('/layouts/boilerplate') %>
 
+<link rel="stylesheet" type="text/css" href="/loginForm/loginForm.css">
+
+<section class="form-section">
+    <form action="/admin/becoordinator" method="post" class="form-container">
+       <h1 class="form-header">تقديم طلب مضيف</h1>
+
+       <label for="" class="form-label">
+          <input type="text" name="info[name]" value="<%= currentUser.name %>" class="form-input" required autofocus>
+          <p class="form-placeholder">الاسم</p>
+       </label>
+       <label for="" class="form-label">
+          <input type="text" name="info[email]" value="<%= currentUser.email %>" class="form-input" required oninvalid="this.setCustomValidity('هذه ليست الصيغة الصحيحة للبريد الالكتروني')">
+          <p class="form-placeholder">البريد الالكتروني</p>
+       </label>
+       <label for="" class="form-label">
+        <input type="text" name="info[phone]" value="<%= currentUser.phone %>" class="form-input" required>
+            <p class="form-placeholder">رقم الهاتف</p>
+        </label>
+        <label for="" class="form-label">
+            <input type="text" name="info[city]" class="form-input" required>
+            <p class="form-placeholder">المدينة</p>
+        </label>
+
+       <div class="sumbitAndRegister">
+         <button type="submit" class="form-botton">تقديم الطلب</button>
+      </div>
+    </form>
+ </section>
+
+ <script type="text/javascript" src="/loginForm/loginForm.js"></script>
+
 <!-- Send a coordinator request page -->
 <!-- Send a post request with a body to "/admin/becoordinator" to login -->
 

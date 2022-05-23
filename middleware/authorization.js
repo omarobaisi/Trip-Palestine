@@ -15,7 +15,7 @@ module.exports.isAuthorized = (req, res, next) => {
         req.flash('error', 'عليك تسجيل الدخول اولا !');
         return res.redirect('/user/login');
     } else if (req.user.authorization == 'normal') {
-        throw new ExpressError("You Aren't Allowed To Do This", 401);
+        throw new ExpressError("ليس لديك الصلاحيات الكافيه للقيام بهذا", 401);
     } else {
         next();
     }
@@ -27,7 +27,7 @@ module.exports.isAdmin = (req, res, next) => {
         req.flash('error', 'عليك تسجيل الدخول اولا !');
         return res.redirect('/user/login');
     } else if (req.user.authorization != 'admin') {
-        throw new ExpressError("You Aren't Allowed To Do This", 401);
+        throw new ExpressError("ليس لديك الصلاحيات الكافيه للقيام بهذا", 401);
     } else {
         next();
     }
@@ -39,7 +39,7 @@ module.exports.isNormal = (req, res, next) => {
         req.flash('error', 'عليك تسجيل الدخول اولا !');
         return res.redirect('/user/login');
     } else if (req.user.authorization != 'normal') {
-        throw new ExpressError("You Aren't Allowed To Do This", 401);
+        throw new ExpressError("ليس لديك الصلاحيات للقيام بهذا", 401);
     } else {
         next();
     }

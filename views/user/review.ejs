@@ -1,50 +1,44 @@
 <% layout('/layouts/boilerplate') %>
-<!-- Used a star css styling found in public/Styles/star.css -->
 <link rel="stylesheet" href="/Styles/stars.css">
+<link rel="stylesheet" type="text/css" href="/loginForm/loginForm.css">
 
-<!-- User review page -->
-<!-- Recieved the user info -->
+<section class="form-section">
+    <form action="/user/<%= user._id %>/review" method="post" class="form-container">
+       <h1 class="form-header">تقييم <%= user.name %></h1>
 
+        <fieldset class="starability-fade mt-4">
+            <div class="reviewComment">
+                <legend>التقييم من 1-5 نجوم</legend>
+            </div>
+            <input type="radio" id="no-rate" class="input-no-rate" name="review[rate]" value="0" checked aria-label="No rating." />
+    
+            <input type="radio" id="rate1" name="review[rate]" value="1" />
+            <label for="rate1">1 star.</label>
+    
+            <input type="radio" id="rate2" name="review[rate]" value="2" />
+            <label for="rate2">2 stars.</label>
+    
+            <input type="radio" id="rate3" name="review[rate]" value="3" />
+            <label for="rate3">3 stars.</label>
+    
+            <input type="radio" id="rate4" name="review[rate]" value="4" />
+            <label for="rate4">4 stars.</label>
+    
+            <input type="radio" id="rate5" name="review[rate]" value="5" />
+            <label for="rate5">5 stars.</label>
+    
+            <span class="starability-focus-ring"></span>
+        </fieldset>
 
-<h1><%= user.name %> Review</h1>
+       <label for="" class="form-label">
+          <input type="text" placeholder="" class="form-input" name="review[body]">
+          <p class="form-placeholder">التعليق</p>
+       </label>
 
-<!-- Send a post request to "/user/user._id/review" with a body -->
+       <div class="sumbitAndRegister">
+         <button type="submit" class="form-botton">تثبيت التقييم</button>
+      </div>
+    </form>
+</section>
 
-<!-- 
-    json body: {
-        review: {
-            body: input,
-            rate: input     (number from 1 to 5)
-        }
-    }
- -->
-
-<form action="/user/<%= user._id %>/review" method="post">
-    <div class="mt-5">
-        <input type="text" name="review[body]" placeholder="Review Comment">
-    </div>
-
-    <fieldset class="starability-fade mt-4">
-        <legend>rating:</legend>
-        <input type="radio" id="no-rate" class="input-no-rate" name="review[rate]" value="0" checked aria-label="No rating." />
-  
-        <input type="radio" id="rate1" name="review[rate]" value="1" />
-        <label for="rate1">1 star.</label>
-  
-        <input type="radio" id="rate2" name="review[rate]" value="2" />
-        <label for="rate2">2 stars.</label>
-  
-        <input type="radio" id="rate3" name="review[rate]" value="3" />
-        <label for="rate3">3 stars.</label>
-  
-        <input type="radio" id="rate4" name="review[rate]" value="4" />
-        <label for="rate4">4 stars.</label>
-  
-        <input type="radio" id="rate5" name="review[rate]" value="5" />
-        <label for="rate5">5 stars.</label>
-  
-        <span class="starability-focus-ring"></span>
-    </fieldset>
-
-    <button class="mt-3">Submit</button>
-</form>
+<script type="text/javascript" src="/loginForm/loginForm.js"></script>

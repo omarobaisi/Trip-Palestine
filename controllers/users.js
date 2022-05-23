@@ -54,7 +54,7 @@ module.exports.profile = async (req, res) => {
         }
     });
     if(!foundUser) {
-        next(new ExpressError("Sorry, We couldn't find the User that your looking for", 404));
+        next(new ExpressError("نأسف, لم نستطع ايجاد ما الشخص الذي تبحث عنه", 404));
     }
     res.render('user/profile', { user: foundUser });
 }
@@ -66,11 +66,11 @@ module.exports.getReview = async (req, res, next) => {
     if(req.user._id != id) {
         const foundUser = await User.findById(id);
         if(!foundUser) {
-            next(new ExpressError("Sorry, We couldn't find the User that you want to review", 404));
+            next(new ExpressError("نأسف, لم نستطع ايجاد ما الشخص الذي تريد تقييمه", 404));
         }
         res.render('user/review', { user: foundUser });
     } else {
-        req.flash('error', "You Can't Review Yourself");
+        req.flash('error', "لا يمكنك تقييم نفسك");
         res.redirect(`/user/${foundUser._id}`);
     }
 }
@@ -85,10 +85,10 @@ module.exports.postReview = async (req, res, next) => {
         foundUser.reviews.push(newReview);
         await newReview.save();
         await foundUser.save();
-        req.flash('success', 'Succesfuly Added a Review');
+        req.flash('success', 'تم اضافة تقييم بنجاح');
         res.redirect(`/user/${foundUser._id}`);
     } else {
-        req.flash('error', "You Can't Review Yourself");
+        req.flash('error', "لا يمكنك تقييم نفسك");
         res.redirect(`/user/${foundUser._id}`);
     }
 }
