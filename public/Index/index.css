@@ -160,8 +160,18 @@
 
 /*! Latest 12 Journeys */
 
+.latestJourneyHeader {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-top: 1px solid #EE2553;
+}
+
 .Journeys {
     margin: 50px;
+    margin-top: 10px;
 }
 
 

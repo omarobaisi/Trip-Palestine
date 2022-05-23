@@ -12,33 +12,33 @@
 
 <div class="imagesGrid">
     <div class="gridRow1">
-        <a href="/" class="gridImgDiv img2">
-            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
-            <div class="innerGrid">
-                <div class="innerGridText">المسجد الاقصى</div>
-            </div>
-        </a>
-        <a href="/" class="gridImgDiv img1">
+        <a class="gridImgDiv img1">
             <img class="gridImg" src="/Index/deadSea.jpg" alt="">
             <div class="innerGrid">
                 <div class="innerGridText">البحر الميت</div>
             </div>
         </a>
+        <a class="gridImgDiv img2">
+            <img class="gridImg" src="/Index/dome-of-the-rock.jpg" alt="">
+            <div class="innerGrid">
+                <div class="innerGridText">المسجد الاقصى</div>
+            </div>
+        </a>
     </div>
     <div class="gridRow2">
-        <a href="/" class="gridImgDiv img3">
+        <a class="gridImgDiv img3">
             <img class="gridImg" src="https://images.pexels.com/photos/190339/pexels-photo-190339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
             <div class="innerGrid">
                 <div class="innerGridText">حيفا</div>
             </div>
         </a>
-        <a href="/" class="gridImgDiv img4">
+        <a class="gridImgDiv img4">
             <img class="gridImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Aerial_view_of_Acre_1.jpg/2560px-Aerial_view_of_Acre_1.jpg" alt="">
             <div class="innerGrid">
                 <div class="innerGridText">عكا</div>
             </div>
         </a>
-        <a href="/" class="gridImgDiv img5">
+        <a class="gridImgDiv img5">
             <img class="gridImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nablus%2C_January_2022.jpg/1920px-Nablus%2C_January_2022.jpg" alt="">
             <div class="innerGrid">
                 <div class="innerGridText">نابلس</div>
@@ -51,6 +51,9 @@
 <!-- Home page -->
 <!-- Recieved an array of all the journeys -->
 
+<div class="latestJourneyHeader">
+    <h1>اخر الرحل المضافة</h1>
+</div>
 <div class="Journeys">
     <% for(let i=journeys.length-1; i>=journeysLength; i--) { %>
         <a href="/journey/<%= journeys[i]._id %>" class="journeyCard">
