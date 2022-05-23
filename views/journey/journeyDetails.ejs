@@ -20,7 +20,7 @@
             <div class="">
                 <div class="date">
                     <div class="dateTitle">تاريخ الرحلة</div>
-                    <div class="dateAnswer"><div><%= journey.date %></div></div>
+                    <div class="dateAnswer"><div><%= moment(journey.date).locale("ar").format('L'); %></div></div>
                 </div>
                 <div class="author">
                     <div>منشئ الرحلة</div>

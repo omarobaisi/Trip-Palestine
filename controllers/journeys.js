@@ -19,7 +19,13 @@ module.exports.getCreate = async (req, res) => {
 
 module.exports.postCreate = async (req, res, next) => {
     req.body.journey.routes = req.body.routes;
-    console.log(req.body)
+
+    req.body.journey.name = req.sanitize(req.body.journey.name)
+    req.body.journey.description = req.sanitize(req.body.journey.description)
+    req.body.journey.routes.forEach(route => {
+        req.sanitize(route.location)
+    })
+
     const newJourney = new Journey(req.body.journey);
     newJourney.user = req.user._id
     // Make a new array with the image path and name (multer will give you req.files for image data)

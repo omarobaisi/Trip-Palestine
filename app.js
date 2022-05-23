@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 
 //! Requring modules
 const passportLocalMongoose = require("passport-local-mongoose");   // Authentication
+const expressSanitizer      = require("express-sanitizer");
 const LocalStrategy = require("passport-local");                    // Authentication
 const passport = require("passport");                               // Authentication
 const methodOverride = require("method-override")                   // Override (Let you use put and delete)
@@ -13,6 +14,7 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');                               // DataBase
 const ejsMate = require('ejs-mate');                                // ejs mate
 const express = require('express');                                 // Express
+const moment = require('moment');                                 // moment
 const path = require('path');                                       // Put file path views/public
 const app = express();                                              // Express
 
@@ -50,6 +52,8 @@ app.use(express.static(path.join(__dirname, 'public'))) // Use CSS/JS in public 
 app.use(bodyParser.urlencoded({extended: true}));       // Post
 app.use(methodOverride("_method"));                     // Override
 app.use(flash());                                       // Flash messages
+app.use(expressSanitizer());                            // Sanitizer
+app.locals.moment = require('moment');                  // Time since created
 
 
 app.use(session({

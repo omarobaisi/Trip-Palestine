@@ -80,6 +80,7 @@ module.exports.postReview = async (req, res, next) => {
     // You can't review yourself
     if(req.user._id != id) {
         const foundUser = await User.findById(id);
+        req.body.review.body = req.sanitize(req.body.review.body)
         const newReview = new Review(req.body.review);
         newReview.user = req.user._id;
         foundUser.reviews.push(newReview);
