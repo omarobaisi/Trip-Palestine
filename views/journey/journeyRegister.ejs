@@ -4,36 +4,6 @@
 
 <% if(currentUser) { %>
 
-    <form action="/journey/<%= journey._id %>" method="post">
-        <div class="">
-            <input type="text" placeholder="المدينة" name="info[city]" required>
-            <!-- Hidden inputs that include the user name, email, phone and _id -->
-            <input type="hidden" value="<%= currentUser.name %>" name="info[name]">
-            <input type="hidden" value="<%= currentUser.email %>" name="info[email]">
-            <input type="hidden" value="<%= currentUser.phone %>" name="info[phone]">
-            <input type="hidden" value="<%= currentUser._id %>" name="info[user]">
-            <!-- Hidden inputs that include the journey price and _id -->
-            <input type="hidden" name="info[price]" value="<%= journey.price %>">
-            <input type="hidden" name="info[journey]" value="<%= journey._id %>">
-            <!-- Show payment options (javascript) -->
-            <button type="button">انتقل الى عملية الدفع</button>
-        </div>
-
-        <!--TODO: Use javascript to show this after pressing the below button -->
-        <div class="hiddenPayment">
-
-            <!-- Pay to us -->
-            <input type="checkbox" id="noPayment">
-            <label for="noPayment">الدفع المباشر</label>
-
-            <!-- Paypal (need to work on) -->
-            <a href="https://www.paypal.com/">Paypal</a>
-
-            <button>تسجيل</button>
-        </div>
-
-    </form>
-
     <section class="formRegister">
         <form action="/journey/<%= journey._id %>" method="post">
             <div class="info form-container" id="loggedInformContainer">
