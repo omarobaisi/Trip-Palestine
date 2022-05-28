@@ -20,6 +20,7 @@ module.exports.getCreate = async (req, res) => {
 module.exports.postCreate = async (req, res, next) => {
     req.body.journey.routes = req.body.routes;
 
+    // Sanatizer
     req.body.journey.name = req.sanitize(req.body.journey.name)
     req.body.journey.description = req.sanitize(req.body.journey.description)
     req.body.journey.routes.forEach(route => {
@@ -92,7 +93,6 @@ module.exports.getRegister = async (req, res) => {
 }
 
 module.exports.postRegister = async (req, res) => {
-    console.log(req.body)
     const newRegister = new JourneyRegister(req.body.info);
 
     // no payment
