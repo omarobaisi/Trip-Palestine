@@ -21,7 +21,7 @@ router.get('/logout', users.logout)
 
 //! Password reset
 router.get('/forgot', users.getForgot)
-router.post('/forgot', users.postForgot)
+router.post('/reset/:id', users.postForgot)
 
 //! Profile
 router.get('/:id', catchAsync(users.profile));

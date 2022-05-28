@@ -66,7 +66,7 @@ module.exports.getReview = async (req, res, next) => {
     if(req.user._id != id) {
         const foundUser = await User.findById(id);
         if(!foundUser) {
-            next(new ExpressError("نأسف, لم نستطع ايجاد ما الشخص الذي تريد تقييمه", 404));
+            next(new ExpressError("نأسف, لم نستطع ايجاد الشخص الذي تريد تقييمه", 404));
         }
         res.render('user/review', { user: foundUser });
     } else {
