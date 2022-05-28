@@ -19,7 +19,7 @@ const journeySchema = new Schema({
         }
     ],
     description: String,
-    date: {type: Date, required: true},     //TODO: Add min to be after current date
+    date: {type: Date, required: true},
     user: {
             type: Schema.Types.ObjectId,
             ref: 'User'

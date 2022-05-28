@@ -77,7 +77,6 @@ module.exports.getReview = async (req, res, next) => {
 
 module.exports.postReview = async (req, res, next) => {
     const { id } = req.params;
-    // You can't review yourself
     if(req.user._id != id) {
         const foundUser = await User.findById(id);
         req.body.review.body = req.sanitize(req.body.review.body)
@@ -145,7 +144,6 @@ module.exports.postForgot = async (req, res, next) => {
             `
             };
             smtpTransport.sendMail(mailOptions, (err) => {
-                console.log('mail sent');
                 req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
                 done(err, 'done');
             });
