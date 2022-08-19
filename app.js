@@ -35,7 +35,8 @@ const userRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admin");
 
 //! Connecting to the dataBase
-mongoose.connect('mongodb://localhost:27017/test')
+const url = process.env.MONGODB_URI || "mongodb://localhost/yelp_camp";
+mongoose.connect(url)
     .then(() => {
         console.log('Mongo Connection Open');
     })
